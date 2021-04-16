@@ -1,47 +1,47 @@
-# language: node_js
-# node_js:
-#   # - lts/*
-#   - 12
-# cache:
-#   directories:
-#     - node_modules
-
-# branches:
-#   only:
-#     - master
-
-# before_install:
-#   - export TZ='Asia/Beijing'
-# install:
-#   - npm install
-
-# script:
-#   - npm run clear
-#   - npm run build
-
-# after_script:
-#   - cd ./build
-#   - git init
-#   - git config user.name "zhaocchen"
-#   - git config user.email "zhaocchen@163.com"
-#   - git add .
-#   - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-#   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
-
-
 language: node_js
 node_js:
+  # - lts/*
   - 12
+cache:
+  directories:
+    - node_modules
+
 branches:
   only:
     - master
-cache:
-  yarn: true
+
+before_install:
+  - export TZ='Asia/Beijing'
 install:
-  - yarn
-  - nvm install 10
+  - npm install
+
 script:
-  - git config --global user.name "${GH_NAME}"
-  - git config --global user.email "${GH_EMAIL}"
-  - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
-  - yarn && GIT_USER="${GH_NAME}" yarn deploy
+  - npm run clear
+  - npm run build
+
+after_script:
+  - cd ./build
+  - git init
+  - git config user.name "zhaocchen"
+  - git config user.email "zhaocchen@163.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+
+
+# language: node_js
+# node_js:
+#   - 12
+# branches:
+#   only:
+#     - master
+# cache:
+#   yarn: true
+# install:
+#   - yarn
+#   - nvm install 10
+# script:
+#   - git config --global user.name "${GH_NAME}"
+#   - git config --global user.email "${GH_EMAIL}"
+#   - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
+#   - yarn && GIT_USER="${GH_NAME}" yarn deploy
