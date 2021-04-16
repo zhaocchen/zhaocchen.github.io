@@ -11,9 +11,9 @@ module.exports = {
   projectName: 'zhaocchen.github.io', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: '我的博客',
       logo: {
-        alt: 'My Site Logo',
+        alt: '我的博客',
         src: 'img/whale.svg',
       },
       items: [
