@@ -2,13 +2,13 @@
 module.exports = {
   title: '元气の小岛',
   tagline: '生活明朗 • 万物可爱 ☻ 人间值得 • 未来可期',
-  url: 'https://endiliey.github.io',
+  url: 'https://zhaocchen.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'zhaocchen', // Usually your GitHub org/user name.
+  projectName: 'zhaocchen.github.io', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'My Site',
