@@ -11,9 +11,9 @@ module.exports = {
   projectName: 'zhaocchen.github.io', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: '我的博客',
+      title: '元气の小岛',
       logo: {
-        alt: '我的博客',
+        alt: '元气の小岛',
         src: 'img/whale.svg',
       },
       items: [
@@ -25,7 +25,7 @@ module.exports = {
         },
         {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/zhaocchen',
           label: 'GitHub',
           position: 'right',
         },
@@ -69,7 +69,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/zhaocchen',
             },
           ],
         },
