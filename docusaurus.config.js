@@ -88,8 +88,15 @@ module.exports = {
             'https://github.com/facebook/docusaurus/edit/master/website/',
         },
         blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
+          path: './blog',
+					showReadingTime: true,
+					postsPerPage: 3,
+					feedOptions: {
+						type: 'all',
+						copyright: `Copyright © ${new Date().getFullYear()} Rematch, Inc.`,
+					},
+					blogSidebarCount: 'ALL',
+					blogSidebarTitle: 'All our posts',
           editUrl:
             'https://github.com/facebook/docusaurus/edit/master/website/blog/',
         },
