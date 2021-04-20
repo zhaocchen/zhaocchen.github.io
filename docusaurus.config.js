@@ -20,10 +20,10 @@ module.exports = {
         {
           to: 'docs/',
           activeBasePath: 'docs',
-          label: 'Docs',
+          label: '专栏',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
+        {to: 'blog', label: '博客', position: 'left'},
         {
           href: 'https://github.com/zhaocchen',
           label: 'GitHub',
@@ -35,16 +35,16 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '专栏',
           items: [
             {
-              label: 'Getting Started',
+              label: '开始阅读',
               to: 'docs/',
             },
           ],
         },
         {
-          title: 'Community',
+          title: '社区',
           items: [
             {
               label: 'Stack Overflow',
@@ -61,10 +61,10 @@ module.exports = {
           ],
         },
         {
-          title: 'More',
+          title: '更多',
           items: [
             {
-              label: 'Blog',
+              label: '博客',
               to: 'blog',
             },
             {
