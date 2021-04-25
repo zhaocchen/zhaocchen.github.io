@@ -5,10 +5,15 @@ slug: /
 
 ## 单例模式（创建型模式）
 
+### 意图
+
+### 场景
+
+### 例子
+
 保证一个类只有一个实例
 
-
-```
+```JavaScript
 class Car {
     constructor() {
         this.brand = 'byd';
