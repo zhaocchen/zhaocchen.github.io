@@ -10,6 +10,24 @@ title: 原型模式(创建型)
 
 ### 例子
 
+```javascript
+class Prototype {
+    clone() {}
+}
+
+class Rectangle extends Prototype {
+    constructor () {
+        super()
+    }
+    clone() {
+        let p = new Rectangle();
+        return p;
+    }
+}
+
+// square
+```
+
 参考：
 
 https://refactoringguru.cn/design-patterns/prototype
