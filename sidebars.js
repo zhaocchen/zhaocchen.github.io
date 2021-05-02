@@ -28,6 +28,9 @@ module.exports = {
       'whiteboard/array-get',
       'whiteboard/drag',
     ],
+    '剑指Offer(JavaScript版)': [
+      'lcof/rest'
+    ],
     'Docusaurus Tutorial': [
       'getting-started',
       'create-a-page',
