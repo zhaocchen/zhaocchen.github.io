@@ -85,7 +85,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/zhaocchen/zhaocchen.github.io/blob/master/',
         },
         blog: {
           path: './blog',
@@ -98,7 +98,7 @@ module.exports = {
 					blogSidebarCount: 'ALL',
 					blogSidebarTitle: 'All our posts',
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/zhaocchen/zhaocchen.github.io/blob/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
