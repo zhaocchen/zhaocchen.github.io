@@ -1,5 +1,7 @@
 ---
+slug: decorator
 title: 装饰模式
+draft: true
 ---
 
 

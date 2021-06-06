@@ -1,4 +1,5 @@
 ---
+slug: factory-method
 title: 工厂方法模式(创建型)
 ---
 

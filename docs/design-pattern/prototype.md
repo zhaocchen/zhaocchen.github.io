@@ -1,4 +1,5 @@
 ---
+slug: prototype
 title: 原型模式(创建型)
 ---
 

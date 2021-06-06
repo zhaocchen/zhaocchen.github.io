@@ -1,5 +1,11 @@
 ---
-title: 状态模式
+slug: state
+title: 状态模式(行为)
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 [https://refactoringguru.cn/design-patterns/state](https://refactoringguru.cn/design-patterns/state)

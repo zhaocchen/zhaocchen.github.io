@@ -1,4 +1,5 @@
 ---
+slug: builder
 title: 生成器模式(创建型)
 ---
 

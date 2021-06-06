@@ -14,7 +14,7 @@ module.exports = {
       title: '元气の小岛',
       logo: {
         alt: '元气の小岛',
-        src: 'img/whale.svg',
+        src: 'img/avatar.jpeg',
       },
       items: [
         {
@@ -64,8 +64,8 @@ module.exports = {
           title: '更多',
           items: [
             {
-              label: '博客',
-              to: 'blog',
+              label: 'LeedCode题解',
+              to: 'https://doocs.github.io/leetcode/#/',
             },
             {
               label: 'GitHub',

@@ -1,5 +1,11 @@
 ---
-title: 观察者模式
+slug: observer
+title: 观察者模式(行为)
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 ## 观察者模式（行为型模式）

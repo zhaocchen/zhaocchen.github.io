@@ -1,4 +1,5 @@
 ---
+slug: abstract-factory
 title: 抽象工厂模式(创建型)
 ---
 

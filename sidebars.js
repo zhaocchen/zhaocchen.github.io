@@ -1,15 +1,19 @@
 module.exports = {
   docs: {
-    '设计模式': [
+    '设计模式(TypeScript版)': [
       'design-pattern/design-principle',
+      // 创建型模式creational
       'design-pattern/factory-method',
       'design-pattern/abstract-factory',
       'design-pattern/builder',
       'design-pattern/prototype',
       'design-pattern/singleton',
-      'design-pattern/装饰模式',
-      'design-pattern/状态模式',
-      'design-pattern/观察者模式',
+      // 结构型模式structural
+      // 'design-pattern/decorator',
+      'design-pattern/flyweight',
+      // 行为模式behavioral
+      // 'design-pattern/observer',
+      // 'design-pattern/state',
     ],
     '白板系列': [
       'whiteboard/string-trim',
