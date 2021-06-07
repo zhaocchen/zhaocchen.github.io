@@ -1,6 +1,11 @@
 ---
 slug: builder
-title: 生成器模式(创建型)
+title: 创建型 | 生成器模式
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 ### 意图
@@ -13,69 +18,158 @@ title: 生成器模式(创建型)
 - 希望使用代码创建不同形式的产品
 - 需要生成器构造组合或其他复杂对象
 
-### 例子
+应用：
 
-```javascript
-class Builder {
+### 缺点
 
+### 实现
+
+
+
+```typescript
+// 1. 创建一个表示食物条目和食物包装的接口
+interface Item {
+  name(): string;
+  packing(): Packing;
+  price(): number;
 }
 
-class Car {
-
+interface Packing {
+  pack(): string;
 }
 
-class AudiBuilder extends Builder {
-    constructor() {
-        super();
-        this.car = new Car();
-    }
-    buildEngine() {
-        this.car.engine = "AudiEngine";
-    }
-    buildGlass() {
-        this.car.glass = 3.5;
-    }
-    buildSteeringWheel() {
-        this.car.steeringWheel = "AudiSteeringWheel";
-    }
-    get() {
-        console.log(this.car);
-        return this.car;
-    }
+// 2. 创建实现 Packing 接口的实体类
+class Wrapper implements Packing {
+  public pack(): string {
+    return "Wrapper";
+  }
 }
 
-class Director {
-    constructor(build) {
-        this.build = build;
-    }
-    
-    construct() {
-        build.buildEngine();
-        build.buildGlass();
-        build.buildSteeringWheel();
-
-        return build.get();
-    }
-
+class Bottle implements Packing {
+  public pack(): string {
+    return "Bottle";
+  }
 }
 
-let build = new AudiBuilder();
-let director = new Director(build);
-let c = director.construct();
+// 3. 创建实现 Item 接口的抽象类，该类提供了默认的功能
+abstract class Burger implements Item {
+  public abstract name(): string;
+  public packing(): Packing {
+    return new Wrapper();
+  }
+  public abstract price(): number;
+}
+abstract class ColdDrink implements Item {
+  public abstract name(): string;
+  public packing(): Packing {
+    return new Bottle();
+  }
+  public abstract price(): number;
+}
 
-// Car {
-//     engine: 'AudiEngine',
-//     glass: 3.5,
-//     steeringWheel: 'AudiSteeringWheel'
-//   }
+// 4. 创建扩展了 Burger 和 ColdDrink 的实体类
+class VegBurger extends Burger {
+  public price(): number {
+    return 25.0;
+  }
+  public name(): string {
+    return "Veg Burger";
+  }
+}
+
+class ChickenBurger extends Burger {
+  public price(): number {
+    return 50.5;
+  }
+  public name(): string {
+    return "Chicken Burger";
+  }
+}
+
+class Coke extends ColdDrink {
+  public price(): number {
+    return 30.0;
+  }
+
+  public name(): string {
+    return "Coke";
+  }
+}
+
+class Pepsi extends ColdDrink {
+  public price(): number {
+    return 35.0;
+  }
+  public name(): string {
+    return "Pepsi";
+  }
+}
+
+// 5. 创建一个 Meal 类，带有上面定义的 Item 对象
+class Meal {
+  private items: Array<Item> = new Array<Item>();
+  public addItem(item: Item): void {
+    this.items.push(item);
+  }
+  public getCost(): number {
+    let cost: number = 0.0;
+    for (let item of this.items) {
+      cost += item.price();
+    }
+    return cost;
+  }
+
+  showItems(): void {
+    for (let item of this.items) {
+      console.log("Item : " + item.name(), ", Packing : " + item.packing().pack(), ", Price : " + item.price());
+
+    }
+  }
+}
+
+// 6. 创建一个 MealBuilder 类，实际的 builder 类负责创建 Meal 对象
+class MealBuilder {
+  public prepareVegMeal(): Meal {
+    let meal: Meal = new Meal();
+    meal.addItem(new VegBurger());
+    meal.addItem(new Coke());
+    return meal;
+  }
+  public prepareNonVegMeal(): Meal {
+    let meal: Meal = new Meal();
+    meal.addItem(new ChickenBurger());
+    meal.addItem(new Pepsi());
+    return meal;
+  }
+}
 ```
 
+测试
 
+```ts
+// 7. BuiderPatternDemo 使用 MealBuilder 来演示建造者模式
+class BuilderPatternDemo {
+  mealBuilder: MealBuilder = new MealBuilder();
+  vegMeal: Meal = this.mealBuilder.prepareVegMeal();
+  nonVegMeal: Meal = this.mealBuilder.prepareNonVegMeal();
+  constructor(args: string[]) {
+    console.log("Veg Meal");
+    this.vegMeal.showItems();
+    console.log("Total Cost: " + this.vegMeal.getCost());
+    console.log("\n\nNon-Veg Meal");
+    this.nonVegMeal.showItems();
+    console.log("Total Cost: " + this.nonVegMeal.getCost());
+  }
+}
 
-参考：
+new BuilderPatternDemo([]);
+// Veg Meal
+// Item : Veg Burger , Packing : Wrapper , Price : 25
+// Item : Coke , Packing : Bottle , Price : 30
+// Total Cost: 55
 
-https://refactoringguru.cn/design-patterns/builder
-
-https://blog.csdn.net/xingjiarong/article/details/50037099?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161934545416780357248529%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161934545416780357248529&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-8-50037099.nonecase&utm_term=%E6%A8%A1%E5%BC%8F
-
-https://mp.weixin.qq.com/s/AK1JzKqwqT91yNXKBUuzSA
+// Non-Veg Meal
+// Item : Chicken Burger , Packing : Wrapper , Price : 50.5
+// Item : Pepsi , Packing : Bottle , Price : 35
+// Total Cost: 85.5
+```

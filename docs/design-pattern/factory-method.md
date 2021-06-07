@@ -1,6 +1,11 @@
 ---
 slug: factory-method
-title: 工厂方法模式(创建型)
+title: 创建型 | 工厂方法模式
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 ### 意图
@@ -13,131 +18,100 @@ title: 工厂方法模式(创建型)
 - 希望用户扩展软件库或框架的内部组织
 - 希望复用现有对象来节省系统资源，而不是每次都重新创建对象
 
-### 例子
+应用：
 
-不暴露创建对象的具体逻辑， 由子类决定实例化哪一类的接口（函数）
-用途： 代替new实例化对象
+- 日志记录器，记录到本地、远程服务器等
+- 数据库访问， 应对不同类数据库
+- 连接服务器的框架， 支持POP3、IMAP、HTTP多种协议
+### 缺点
 
-```JavaScript
-// 产品类
-class Product {
-    deliver () {
-        console.log('运输') 
+随着产品的增加， 子类数量随之增加
+
+### 实现
+
+
+```typescript
+// 1. 创建一个接口
+interface Shape {
+  draw(): void;
+}
+
+// 2. 创建实现接口的实体类
+class Rectangle implements Shape {
+  public draw(): void {
+    console.log("Inside Rectangle::draw() method.");
+  }
+}
+
+class Square implements Shape {
+  public draw(): void {
+    console.log("Inside Square::draw() method.");
+  }
+}
+
+class Circle implements Shape {
+  public draw(): void {
+    console.log("Inside Circle::draw() method.");
+  }
+}
+
+// 3. 创建一个工厂，生成基于给定信息的实体类的对象
+class ShapeFactory {
+  //使用 getShape 方法获取形状类型的对象
+  public getShape(shapeType: string): Shape {
+    if (shapeType == null) {
+      return null;
     }
-}
-
-class Truck extends Product {
-    deliver () {
-        console.log('陆运')
+    if (shapeType.toLocaleUpperCase() == "CIRCLE") {
+      return new Circle();
+    } else if (shapeType.toLocaleUpperCase() == "RECTANGLE") {
+      return new Rectangle();
+    } else if (shapeType.toLocaleUpperCase() == "SQUARE") {
+      return new Square();
     }
-}
-class Ship extends Product {
-    deliver () {
-        console.log('海运')
-    }
+    return null;
+  }
 }
 
-// 工厂类
-class Factory {
 
-}
 
-class CreateTruck extends Factory {
-    create () {
-        return new Truck();
-    }
-}
-
-class CreateShip extends Factory {
-    create () {
-        return new Ship();
-    }
-}
-
-let t = new CreateTruck();
-t.create().deliver();
-let s = new CreateShip();
-s.create().deliver();
-
-// 陆运
-// 海运
 ```
 
-### 按照抽象程度分类
+测试
+
+```ts
+// 4. 使用该工厂，通过传递类型信息来获取实体类的对象
+class FactoryPatternDemo {
+  shapeFactory: ShapeFactory = new ShapeFactory();
+  constructor(args: string[]) {
+    //获取 Circle 的对象，并调用它的 draw 方法
+    let shape1: Shape = this.shapeFactory.getShape("CIRCLE");
+    //调用 Circle 的 draw 方法
+    shape1.draw();
+
+    //获取 Rectangle 的对象，并调用它的 draw 方法
+    let shape2: Shape = this.shapeFactory.getShape("RECTANGLE");
+    //调用 Rectangle 的 draw 方法
+    shape2.draw();
+
+    //获取 Square 的对象，并调用它的 draw 方法
+    let shape3: Shape = this.shapeFactory.getShape("SQUARE");
+    //调用 Square 的 draw 方法
+    shape3.draw();
+  }
+}
+
+new FactoryPatternDemo([]);
+// Inside Circle::draw() method.
+// Inside Rectangle::draw() method.
+// Inside Square::draw() method.
+
+```
+
+****
+
+## 按照抽象程度分类
 
 ![image.png](/img/design-pattern/工厂模式p1.png)
 
-## 简单工厂模式（静态工厂方法）
-
-```
-// 产品类
-class Product {
-    deliver () {
-        console.log('运输') 
-    }
-}
-
-class Truck extends Product {
-    deliver () {
-        console.log('陆运')
-    }
-}
-class Ship extends Product {
-    deliver () {
-        console.log('海运')
-    }
-}
-
-// 工厂类
-class SimpleFactory {
-    create (type) {
-        if (type == 'truck') {
-            return new Truck();
-        } else if (type == 'ship') {
-            return new Ship();
-        }
-    }
-}
-
-let t = new SimpleFactory();
-t.create('truck').deliver();
-let s = new SimpleFactory();
-s.create('ship').deliver();
-
-// 陆运
-// 海运
-```
-
-
-
-改版2
-
-```
-var factory = {};
-factory.car = function () {
-    console.log('car');
-}
-factory.plane = function () {
-    console.log('plane');
-}
-
-factory.manage = function (create) {
-    return new factory[create]();
-}
-
-let car = factory.manage('car');
-let plane = factory.manage('plane');
-
-// car
-// plane
-```
-
-
-
-参考：
-
-https://refactoringguru.cn/design-patterns/factory-method
-
-https://blog.csdn.net/xingjiarong/article/details/50001387?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161934545416780357248529%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161934545416780357248529&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-12-50001387.nonecase&utm_term=%E6%A8%A1%E5%BC%8F
-
-https://mp.weixin.qq.com/s/UQlKdpOn-v2wgk24htMVyg
+### 简单工厂模式（静态工厂方法）

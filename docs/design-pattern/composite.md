@@ -1,6 +1,6 @@
 ---
-slug: template
-title: 结构型 | 享元模式
+slug: composite
+title: 结构型 | 组合模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []

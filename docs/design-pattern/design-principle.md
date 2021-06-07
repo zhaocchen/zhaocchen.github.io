@@ -1,5 +1,10 @@
 ---
 title: 设计原则
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 ## 面向对象原则（SOLID原则）

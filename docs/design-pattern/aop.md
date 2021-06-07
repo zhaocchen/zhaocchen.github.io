@@ -1,5 +1,10 @@
 ---
 title: 面向切面编程AOP
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 用途： 业务中降低耦合性的有效手段之一

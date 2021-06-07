@@ -1,6 +1,6 @@
 ---
 slug: state
-title: 状态模式(行为)
+title: 行为型 | 状态模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []

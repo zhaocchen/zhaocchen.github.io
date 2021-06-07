@@ -1,7 +1,11 @@
 ---
 slug: decorator
-title: 装饰模式
-draft: true
+title: 结构型 | 装饰模式
+author: Zhao chen
+author_url: https://github.com/zhaocchen
+tags: []
+draft: false
+description: 
 ---
 
 
@@ -9,17 +13,12 @@ draft: true
 ## 背景
 ES7新特性，装饰器
 
-
 面试：
 
 - 请介绍一下装饰者模式，并实现？
 
 
-
 ## 介绍
-
-
-
 
 装饰者模式，是动态的给类（对象）增加职责的设计模式， 属于设计模式中结构型模式大类。
 在不改变元对象的基础上， 对这个对象进行包装盒拓展， 从而使对象有更加复杂的功能

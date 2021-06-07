@@ -1,6 +1,6 @@
 ---
-slug: template
-title: 结构型 | 享元模式
+slug: proxy
+title: 结构型 | 代理模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []

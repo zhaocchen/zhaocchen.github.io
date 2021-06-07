@@ -1,6 +1,6 @@
 ---
-slug: template
-title: 结构型 | 享元模式
+slug: bridge
+title: 结构型 | 桥接模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []

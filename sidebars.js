@@ -5,12 +5,17 @@ module.exports = {
       // 创建型模式creational
       'design-pattern/factory-method',
       'design-pattern/abstract-factory',
+      'design-pattern/singleton',
       'design-pattern/builder',
       'design-pattern/prototype',
-      'design-pattern/singleton',
       // 结构型模式structural
-      // 'design-pattern/decorator',
+      // 'design-pattern/adapter',
+      // 'design-pattern/bridge',
+      // 'design-pattern/composite',
+      'design-pattern/decorator',
+      // 'design-pattern/facade',
       'design-pattern/flyweight',
+      // 'design-pattern/proxy',
       // 行为模式behavioral
       // 'design-pattern/observer',
       // 'design-pattern/state',

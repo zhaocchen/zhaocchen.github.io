@@ -1,6 +1,6 @@
 ---
 slug: flyweight
-title: 享元模式(结构型)
+title: 结构型 | 享元模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []
@@ -82,7 +82,11 @@ Flyweight Pattern (享元模式)， 主要用于减少创建对象的数量， �
        return circle;
     }
  }
+```
 
+测试
+
+```ts
 //  4. 使用该工厂，通过传递颜色信息来获取实体类的对象
 class FlyweightPatternDemo {
     private static colors: string[] = [ "Red", "Green", "Blue", "White", "Black" ];
@@ -105,11 +109,6 @@ class FlyweightPatternDemo {
        return Math.floor(Math.random()*100);
     }
  }
-```
-
-测试
-
-```ts
 //  test
 new FlyweightPatternDemo();
 

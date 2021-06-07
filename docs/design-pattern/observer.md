@@ -1,6 +1,6 @@
 ---
 slug: observer
-title: 观察者模式(行为)
+title: 行为型 | 观察者模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []
