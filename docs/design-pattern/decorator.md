@@ -10,6 +10,106 @@ description:
 
 
 
+装饰器模式允许向一个现有的对象添加新的功能， 同时不改变其结构。
+
+### 意图
+
+### 场景
+
+应用：
+
+### 缺点
+
+### 实现
+
+```ts
+// 1. 创建一个接口
+interface Shape {
+  draw(): void;
+}
+
+// 2. 创建实现接口的实体类
+class Rectangle implements Shape {
+  public draw(): void {
+    console.log("Shape: Rectangle");
+  }
+}
+
+class Circle implements Shape {
+  public draw(): void {
+    console.log("Shape: Circle");
+  }
+}
+
+// 3. 创建实现了 Shape 接口的抽象装饰类
+abstract class ShapeDecorator implements Shape {
+  protected decoratedShape: Shape;
+  constructor(decoratedShape: Shape) {
+    this.decoratedShape = decoratedShape;
+  }
+
+  public draw(): void {
+    this.decoratedShape.draw();
+  }
+}
+
+// 4. 创建扩展了 ShapeDecorator 类的实体装饰类
+class RedShapeDecorator extends ShapeDecorator {
+  constructor(decoratedShape: Shape) {
+    super(decoratedShape);
+  }
+
+  public draw(): void {
+    this.decoratedShape.draw();
+    this.setRedBorder(this.decoratedShape);
+  }
+  private setRedBorder(decoratedShape: Shape): void {
+    console.log("Border Color: Red");
+  }
+}
+```
+
+测试
+
+```ts
+// 5. 使用 RedShapeDecorator 来装饰 Shape 对象
+class DecoratorPatternDemo {
+  circle: Shape = new Circle();
+  redCircle: ShapeDecorator = new RedShapeDecorator(new Circle());
+  redRectangle: ShapeDecorator = new RedShapeDecorator(new Rectangle());
+  constructor(args: string[]) {
+    console.log("Circle with normal border");
+    this.circle.draw();
+
+    console.log("\nCircle of red border");
+    this.redCircle.draw();
+
+    console.log("\nRectangle of red border");
+    this.redRectangle.draw();
+  }
+}
+
+new DecoratorPatternDemo([]);
+// Circle with normal border
+// Shape: Circle
+
+// Circle of red border
+// Shape: Circle
+// Border Color: Red
+
+// Rectangle of red border
+// Shape: Rectangle
+// Border Color: Red
+```
+
+
+
+
+
+****
+
+
+
 ## 背景
 ES7新特性，装饰器
 
@@ -28,7 +128,7 @@ ES7新特性，装饰器
 ### 面向对象实现
 
 
-```
+```js
 var Car = function () {};
 Car.prototype.drive = function () {
     console.log('原始方法');
@@ -50,7 +150,7 @@ car.drive();
 // 加强方法
 ```
 多个装饰器
-```
+```js
 var Car = function () {};
 Car.prototype.drive = function () {
     console.log('原始方法');
@@ -105,7 +205,7 @@ car.brake();
 ```
 ### 基于对象实现
 用一个变量来保存原函数的引用，然后再重写 drive 方法
-```
+```js
 var car = {
     drive: function () {
         console.log('原始方法');
@@ -129,7 +229,7 @@ car1.drive();
 // 加强方法
 ```
 工具函数， 辅助装饰函数
-```
+```js
 Function.prototype.after = function (dec) {
     return () => {
         var ret = this.apply(this, arguments);
@@ -157,7 +257,7 @@ car1.drive();
 ```
 ### ES7实现（语法糖）
 方法装饰器
-```
+```js
 function autopilotDecorator (target, key, descriptor) {
     const method = descriptor.value;
     descriptor.value = () => {
@@ -187,14 +287,14 @@ car1.drive();
 [https://mp.weixin.qq.com/s/1ptRKOXMMe6pjU0jvu5tAw](https://mp.weixin.qq.com/s/1ptRKOXMMe6pjU0jvu5tAw)
 #### 环境
 [https://babeljs.io/docs/en/babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)
-```
+```shell
 yarn init -y
 touch index.js
 yarn add @babel/core @babel/cli @babel/preset-env --dev
 yarn add @babel/plugin-proposal-decorators --dev
 ```
 命令行
-```
+```json
   // package.json
   "scripts": {
     "build": "babel index.js -o compiled.js && node compiled.js"
@@ -204,7 +304,7 @@ yarn add @babel/plugin-proposal-decorators --dev
   ],
 ```
 配置文件
-```
+```json
 // .babelrc
 {
     "presets": ["@babel/preset-env"],
