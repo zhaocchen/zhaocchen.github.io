@@ -1,14 +1,14 @@
 ---
 title: 实现JSON
 ---
-```
+```js
 JSON.parse(JSON.stringify({a: 1}))
 {a: 1}
 ```
 
 
 类型
-```
+```js
 JSON.stringify({a: '1'})
 "{"a":"1"}"
 JSON.stringify({a: 1})
@@ -40,7 +40,7 @@ JSON.stringify({a: function () { console.log('hello')}})
 - object
 
 复杂
-```
+```js
 JSON.stringify({a: { b: { c: 1}}})
 "{"a":{"b":{"c":1}}}"
 JSON.stringify({a: false, b: 21})
@@ -48,7 +48,7 @@ JSON.stringify({a: false, b: 21})
 ```
 #### 实现JSON.parse()
 简介版：
-```
+```js
 function jsonParse(jsonStr) {
    return eval("(" + jsonStr + ")");
 }
@@ -56,7 +56,7 @@ function jsonParse(jsonStr) {
 参考语法分析：
 #### 实现JSON.stringify()
 不考虑第二第三个参数
-```
+```js
 function jsonStringify(val) {
     const valType = getType(val);
     if (valType == 'Null') {
@@ -116,5 +116,4 @@ stringify几大特征 [https://segmentfault.com/a/1190000021230185](https://segm
 [https://lihautan.com/json-parser-with-javascript/](https://lihautan.com/json-parser-with-javascript/)
 [https://juejin.im/post/6844904066217148424](https://juejin.im/post/6844904066217148424)
 [http://www.jecyu.com/2020/02/21/%E8%AF%91%E6%96%87%E4%BD%BF%E7%94%A8javascript-%E6%89%8B%E5%86%99-json-parser/#_parser](http://www.jecyu.com/2020/02/21/%E8%AF%91%E6%96%87%E4%BD%BF%E7%94%A8javascript-%E6%89%8B%E5%86%99-json-parser/#_parser)
-
 

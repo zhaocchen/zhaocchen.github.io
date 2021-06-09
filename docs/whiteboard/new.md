@@ -2,7 +2,7 @@
 title: 实现new
 ---
 
-```
+```js
 function myNew (Func) {
     // 第一步， 创建空对象
     const obj = {};
@@ -21,7 +21,7 @@ function myNew (Func) {
 
 
 测试
-```
+```js
 // case
 function Person (name, age) {
     this.name = name;

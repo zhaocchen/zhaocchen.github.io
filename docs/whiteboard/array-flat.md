@@ -5,11 +5,9 @@ title: 实现Array.flat
 
 [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
 
-
 📢 参数 深度， 默认为1
 
-
-```
+```js
 Array.prototype.myFlat = function (depth = 1) {
     if (!Number(depth) || Number(depth) < 0) {
         return this;
@@ -26,13 +24,3 @@ Array.prototype.myFlat = function (depth = 1) {
     return res;
 }
 ```
-
-
-
-
-
-
-
-
-
-

@@ -28,7 +28,7 @@ title: 实现节流与防抖
 
 原理： 延迟时间内触发不做响应。
 应用场景： 按钮、提交表单
-```
+```js
 var debounce_my = (fn, delay = 500) => {
     let timer;
     return (...args) => {
@@ -44,7 +44,7 @@ var debounce_my = (fn, delay = 500) => {
 #### 节流throttle
 原理： 一段时间内只触发一次
 应用场景：鼠标移动、改变窗口、拖拽
-```
+```js
 function throttle (fn, delay = 500) {
     let timer;
     return (...args) => {

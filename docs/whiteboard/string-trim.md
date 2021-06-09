@@ -4,19 +4,19 @@ title: 实现Sting.trim
 
 ## 实现trim
 #### 修剪trim
-```
+```js
 var a = '   r34 f  ';
 a.trim()
 "r34 f"
 ```
 #### 正则实现
-```
+```js
 // 实现
 a.replace(/^\s+|\s+$/g, '')
 "r34 f"
 ```
 #### MDN实现
-```
+```js
 // MDN
 // 所有的空白字符 (space, tab, no-break space 等) 以及所有行终止符字符（如 LF，CR等）
 if (!String.prototype.trim) {
@@ -34,6 +34,7 @@ if (!String.prototype.trim) {
 
 ## 应用
 ### vue中输入框禁止首尾空格
-```
+```html
 <input v-model.trim="name" />
 ```
+

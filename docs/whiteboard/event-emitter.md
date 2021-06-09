@@ -3,7 +3,7 @@ title: 实现事件分发
 ---
 
 
-```
+```js
 // 实现一个eventEmitter，拥有四个方法on, off, once 和 trigger
 function EventEmitter(_events) {
     this._events = _events || new Map();

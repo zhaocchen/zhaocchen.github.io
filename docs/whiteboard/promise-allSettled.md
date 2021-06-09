@@ -5,7 +5,7 @@ title: 实现Promise.allSettled
 [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
 
 
-```
+```js
 function promiseAllSettled(iterator) {
     return new Promise((resolve, reject) => {
         let count = 0;
@@ -35,7 +35,7 @@ function promiseAllSettled(iterator) {
 }
 ```
 测试
-```
+```js
 // case
 
 let p1 = new Promise((resolve, reject) => {
@@ -68,3 +68,4 @@ promiseAllSettled([p3, p1, p2]).then(res => {
 //     { status: 'rejected', reason: 2 }
 //   ]
 ```
+

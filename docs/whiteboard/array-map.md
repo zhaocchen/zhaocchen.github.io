@@ -16,7 +16,7 @@ title: 实现Array.map
 
 可选`map` 方法调用的数组。
 #### 手写 
-```
+```js
 Array.prototype._map = function (callback, context) {
     let arr = Array.prototype.slice.call(this)
     let mappedArr = new Array(arr.length)
@@ -28,7 +28,7 @@ Array.prototype._map = function (callback, context) {
 }
 ```
 #### 测试
-```
+```js
 // case
 var a = [1, 2, 3]
 
@@ -45,7 +45,7 @@ console.log(a._map((v, i, data) => {
 ```
 ## 手写用reduce实现map
 #### 实现
-```
+```js
 Array.prototype._map = function(callback, context) {
     let arr = Array.prototype.slice.call(this);
     let res = this.reduce((acc, cur, index, src) => {
@@ -59,7 +59,7 @@ Array.prototype._map = function(callback, context) {
 
 
 #### 测试
-```
+```js
 // case
 var a = [1, 2, 3]
 
@@ -74,5 +74,4 @@ console.log(a._map((v, i, data) => {
 // 3 2 [ 1, 2, 3 ]
 // [ 1, 4, 9 ]
 ```
-
 

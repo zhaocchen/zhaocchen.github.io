@@ -21,6 +21,7 @@ module.exports = {
       // 'design-pattern/state',
     ],
     '白板系列': [
+      'whiteboard/bisect_right',
       'whiteboard/string-trim',
       'whiteboard/array-flat',
       'whiteboard/array-map',
