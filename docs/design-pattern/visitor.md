@@ -1,6 +1,6 @@
 ---
 slug: template
-title: 行为型 | 模板模式
+title: 行为型 | 访问者模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []

@@ -1,6 +1,6 @@
 ---
-slug: template
-title: 行为型 | 模板模式
+slug: iterator
+title: 行为型 | 迭代器模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []
@@ -19,3 +19,8 @@ description:
 
 ### 实现
 
+
+
+
+
+📢 All declarations of 'Iterator' must have identical type parameters

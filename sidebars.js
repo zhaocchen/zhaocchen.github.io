@@ -11,14 +11,24 @@ module.exports = {
       // 结构型模式structural
       // 'design-pattern/adapter',
       // 'design-pattern/bridge',
+      // 'design-pattern/filter', // 额外
       // 'design-pattern/composite',
       'design-pattern/decorator',
       // 'design-pattern/facade',
       'design-pattern/flyweight',
       // 'design-pattern/proxy',
       // 行为模式behavioral
+      // 'design-pattern/chain-of-responsibility',
+      // 'design-pattern/command',
+      // 'design-pattern/interpreter', // 额外
+      // 'design-pattern/iterator',
+      // 'design-pattern/mediator',
+      // 'design-pattern/memento',
       // 'design-pattern/observer',
       // 'design-pattern/state',
+      // 'design-pattern/strategy',
+      // 'design-pattern/visitor',
+      // 'design-pattern/template',
     ],
     '白板系列': [
       'whiteboard/bisect_right',

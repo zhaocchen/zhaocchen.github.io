@@ -36,7 +36,10 @@ class SingleObject {
     console.log("Hello World!");
   }
 }
+```
+测试
 
+```ts
 // 2. 从 singleton 类获取唯一的对象
 class SingletonPatternDemo {
   //获取唯一可用的对象
@@ -49,5 +52,4 @@ class SingletonPatternDemo {
 
 new SingletonPatternDemo([]);
 // Hello World!
-
 ```

@@ -1,6 +1,6 @@
 ---
-slug: template
-title: 行为型 | 模板模式
+slug: interpreter
+title: 行为型 | 解释器模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []
