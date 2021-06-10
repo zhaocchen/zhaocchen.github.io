@@ -19,3 +19,84 @@ description:
 
 ### 实现
 
+```ts
+// 1. 定义一个表示元素的接口
+interface ComputerPart {
+	accept(computerPartVisitor: ComputerPartVisitor): void;
+}
+
+// 2. 创建扩展了上述类的实体类
+class Keyboard implements ComputerPart {
+	public accept(computerPartVisitor: ComputerPartVisitor): void {
+		computerPartVisitor.visit(this);
+	}
+}
+
+class Monitor implements ComputerPart {
+	public accept(computerPartVisitor: ComputerPartVisitor): void {
+		computerPartVisitor.visit(this);
+	}
+}
+
+class Mouse implements ComputerPart {
+	public accept(computerPartVisitor: ComputerPartVisitor): void {
+		computerPartVisitor.visit(this);
+	}
+}
+
+class Computer implements ComputerPart {
+	parts: ComputerPart[];
+	constructor() {
+		this.parts = [new Mouse(), new Keyboard(), new Monitor()];
+	}
+	public accept(computerPartVisitor: ComputerPartVisitor): void {
+		for (let i: number = 0; i < this.parts.length; i++) {
+			this.parts[i].accept(computerPartVisitor);
+		}
+		computerPartVisitor.visit(this);
+	}
+}
+
+// 3. 定义一个表示访问者的接口
+interface ComputerPartVisitor {
+	visit(computer: Computer): void;
+	visit(mouse: Mouse): void;
+	visit(keyboard: Keyboard): void;
+	visit(monitor: Monitor): void;
+}
+
+// 4. 创建实现了上述类的实体访问者
+class ComputerPartDisplayVisitor implements ComputerPartVisitor {
+	public visit(v: Computer | Mouse | Keyboard | Monitor): void {
+		if (v instanceof Computer) {
+			console.log("Displaying Computer.");
+		} else if (v instanceof Mouse) {
+			console.log("Displaying Mouse.");
+		} else if (v instanceof Keyboard) {
+			console.log("Displaying Keyboard.");
+		} else if (v instanceof Monitor) {
+			console.log("Displaying Monitor.");
+		}
+	}
+}
+```
+
+测试
+
+```ts
+// 5. 使用 ComputerPartDisplayVisitor 来显示 Computer 的组成部分
+class VisitorPatternDemo {
+	constructor() {
+		let computer: ComputerPart = new Computer();
+		computer.accept(new ComputerPartDisplayVisitor());
+	}
+}
+
+new VisitorPatternDemo();
+// Displaying Mouse.
+// Displaying Keyboard.
+// Displaying Monitor.
+// Displaying Computer.
+```
+
+相同返回类型和不同输入类型的重载，JavaScript不提供运行时类型信息
