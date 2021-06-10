@@ -29,87 +29,87 @@ description:
 ```ts
   // 1. 创建 Subject 类
 class Subject {
-	private observers: Array<Observer> = new Array<Observer>();
-	private state: number = 0;
+ private observers: Array<Observer> = new Array<Observer>();
+ private state: number = 0;
 
-	public getState(): number {
-		return this.state;
-	}
+ public getState(): number {
+  return this.state;
+ }
 
-	public setState(state: number): void {
-		this.state = state;
-		this.notifyAllObservers();
-	}
+ public setState(state: number): void {
+  this.state = state;
+  this.notifyAllObservers();
+ }
 
-	public attach(observer: Observer): void {
-		this.observers.push(observer);
-	}
+ public attach(observer: Observer): void {
+  this.observers.push(observer);
+ }
 
-	public notifyAllObservers(): void {
-		for (let observer of this.observers) {
-			observer.update();
-		}
-	}
+ public notifyAllObservers(): void {
+  for (let observer of this.observers) {
+   observer.update();
+  }
+ }
 }
 
 // 2. 创建 Observer 类
 abstract class Observer {
-	protected subject: Subject = new Subject();
-	public abstract update(): void;
+ protected subject: Subject = new Subject();
+ public abstract update(): void;
 }
 
 // 3. 创建实体观察者类
 class BinaryObserver extends Observer {
-	constructor(subject: Subject) {
-		super();
-		this.subject = subject;
-		this.subject.attach(this);
-	}
+ constructor(subject: Subject) {
+  super();
+  this.subject = subject;
+  this.subject.attach(this);
+ }
 
-	public update(): void {
-		console.log("Binary String: ", this.subject.getState().toString(2));
-	}
+ public update(): void {
+  console.log("Binary String: ", this.subject.getState().toString(2));
+ }
 }
 
 class OctalObserver extends Observer {
-	constructor(subject: Subject) {
-		super();
-		this.subject = subject;
-		this.subject = subject;
-		this.subject.attach(this);
-	}
+ constructor(subject: Subject) {
+  super();
+  this.subject = subject;
+  this.subject = subject;
+  this.subject.attach(this);
+ }
 
-	public update(): void {
-		console.log("Octal String: ", this.subject.getState().toString(10));
-	}
+ public update(): void {
+  console.log("Octal String: ", this.subject.getState().toString(10));
+ }
 }
 
 class HexaObserver extends Observer {
-	constructor(subject: Subject) {
-		super();
-		this.subject = subject;
-		this.subject.attach(this);
-	}
+ constructor(subject: Subject) {
+  super();
+  this.subject = subject;
+  this.subject.attach(this);
+ }
 
-	public update(): void {
-		console.log("Hex String: ", this.subject.getState().toString(16).toLocaleUpperCase());
-	}
+ public update(): void {
+  console.log("Hex String: ", this.subject.getState().toString(16).toLocaleUpperCase());
+ }
 }
 
 // 4. 使用 Subject 和实体观察者对象
 class ObserverPatternDemo {
-	constructor(args: string[]) {
-		let subject: Subject = new Subject();
+ constructor(args: string[]) {
+  let subject: Subject = new Subject();
 
-		new HexaObserver(subject);
-		new OctalObserver(subject);
-		new BinaryObserver(subject);
+  new HexaObserver(subject);
+  new OctalObserver(subject);
+  new BinaryObserver(subject);
 
-		console.log("First state change: 15");
-		subject.setState(15);
-		console.log("Second state change: 10");
-		subject.setState(10);
-	}
+  console.log("First state change: 15");
+  subject.setState(15);
+  console.log("Second state change: 10");
+  subject.setState(10);
+ }
 }
 ```
 

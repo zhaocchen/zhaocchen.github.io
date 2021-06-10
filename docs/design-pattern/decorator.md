@@ -102,31 +102,24 @@ new DecoratorPatternDemo([]);
 // Border Color: Red
 ```
 
-
-
-
-
 ****
 
-
-
 ## 背景
+
 ES7新特性，装饰器
 
 面试：
 
 - 请介绍一下装饰者模式，并实现？
 
-
 ## 介绍
 
 装饰者模式，是动态的给类（对象）增加职责的设计模式， 属于设计模式中结构型模式大类。
 在不改变元对象的基础上， 对这个对象进行包装盒拓展， 从而使对象有更加复杂的功能
 
-
 ## 实现
-### 面向对象实现
 
+### 面向对象实现
 
 ```js
 var Car = function () {};
@@ -149,7 +142,9 @@ car.drive();
 // 原始方法
 // 加强方法
 ```
+
 多个装饰器
+
 ```js
 var Car = function () {};
 Car.prototype.drive = function () {
@@ -203,8 +198,11 @@ car.brake();
 // 原始方法2
 // 加强方法2
 ```
+
 ### 基于对象实现
+
 用一个变量来保存原函数的引用，然后再重写 drive 方法
+
 ```js
 var car = {
     drive: function () {
@@ -228,7 +226,9 @@ car1.drive();
 // 原始方法
 // 加强方法
 ```
+
 工具函数， 辅助装饰函数
+
 ```js
 Function.prototype.after = function (dec) {
     return () => {
@@ -255,8 +255,11 @@ car1.drive();
 // 原始方法
 // 加强方法
 ```
+
 ### ES7实现（语法糖）
+
 方法装饰器
+
 ```js
 function autopilotDecorator (target, key, descriptor) {
     const method = descriptor.value;
@@ -279,21 +282,31 @@ car1.drive();
 // 原始方法
 // 加强方法
 ```
+
 类装饰器
 函数方法装饰器
+
 #### 应用 react中高阶组件作为装饰器
+
  需要逻辑复用时，HOC接受一个react组件， 返回一个新的react组件。
+
 #### 应用 装饰器模式增强fetch
+
 [https://mp.weixin.qq.com/s/1ptRKOXMMe6pjU0jvu5tAw](https://mp.weixin.qq.com/s/1ptRKOXMMe6pjU0jvu5tAw)
+
 #### 环境
+
 [https://babeljs.io/docs/en/babel-plugin-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)
+
 ```shell
 yarn init -y
 touch index.js
 yarn add @babel/core @babel/cli @babel/preset-env --dev
 yarn add @babel/plugin-proposal-decorators --dev
 ```
+
 命令行
+
 ```json
   // package.json
   "scripts": {
@@ -303,7 +316,9 @@ yarn add @babel/plugin-proposal-decorators --dev
     "babel"
   ],
 ```
+
 配置文件
+
 ```json
 // .babelrc
 {
@@ -312,16 +327,12 @@ yarn add @babel/plugin-proposal-decorators --dev
 }
 ```
 
-
 原理
 
-
 #### ts
+
 [https://www.typescriptlang.org/docs/handbook/decorators.html](https://www.typescriptlang.org/docs/handbook/decorators.html)
 [https://www.tslang.cn/docs/handbook/decorators.html](https://www.tslang.cn/docs/handbook/decorators.html)
-
-
-
 
 参考：
 [https://github.com/lgwebdream/FE-Interview/issues/1057](https://github.com/lgwebdream/FE-Interview/issues/1057)

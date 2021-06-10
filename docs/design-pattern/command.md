@@ -98,4 +98,3 @@ new CommandPatternDemo([]);
 // Stock [ Name: ABC, Quantity: 10 ] bought
 // Stock [ Name: ABC, Quantity: 10 ] sold
 ```
-

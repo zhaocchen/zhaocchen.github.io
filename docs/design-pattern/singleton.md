@@ -18,8 +18,6 @@ description:
 
 ### 实现
 
-
-
 ```typescript
 // 1. 创建一个 Singleton 类
 class SingleObject {
@@ -37,6 +35,7 @@ class SingleObject {
   }
 }
 ```
+
 测试
 
 ```ts

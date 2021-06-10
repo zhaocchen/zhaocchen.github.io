@@ -73,7 +73,7 @@ Law of Demeter， 迪米特法则
 - Controller 层/Service层/ DAO 层
 - Router/Controller/Service/Middleware
 
-📢 
+📢
 
 - 太过于关注局部的简化，忽略整体
 - 拆分过多中间类和方法
