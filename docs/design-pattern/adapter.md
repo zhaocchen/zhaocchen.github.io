@@ -8,14 +8,22 @@ draft: false
 description: 
 ---
 
-
 ### 意图
+
+使接口不兼容的对象能够相互合作。
 
 ### 场景
 
+- 需要的类接口与其他代码不兼容
+- 需要复用的一些类，处于同一继承体系， 有额外的来自继承体系外的一些共同方法
+
 应用：
 
+- 充电器适配器
+
 ### 缺点
+
+代码较复杂
 
 ### 实现
 
@@ -35,6 +43,7 @@ class VlcPlayer implements AdvancedMediaPlayer {
   public playVlc(fileName: string): void {
     console.log("Playing vlc file. Name: " + fileName);
   }
+  
   public playMp4(fileName: string): void {
     //什么也不做
   }
@@ -44,6 +53,7 @@ class Mp4Player implements AdvancedMediaPlayer {
   public playVlc(fileName: string): void {
     //什么也不做
   }
+  
   public playMp4(fileName: string): void {
     console.log("Playing mp4 file. Name: " + fileName);
   }
@@ -95,16 +105,16 @@ class AudioPlayer implements MediaPlayer {
 ```ts
 // 5. 使用 AudioPlayer 来播放不同类型的音频格式
 class AdapterPatternDemo {
-  audioPlayer: AudioPlayer = new AudioPlayer();
-  constructor(args: string[]) {
-    this.audioPlayer.play("mp3", "beyond the horizon.mp3");
-    this.audioPlayer.play("mp4", "alone.mp4");
-    this.audioPlayer.play("vlc", "far far away.vlc");
-    this.audioPlayer.play("avi", "mind me.avi");
+  constructor() {
+    let audioPlayer: AudioPlayer = new AudioPlayer();
+    audioPlayer.play("mp3", "beyond the horizon.mp3");
+    audioPlayer.play("mp4", "alone.mp4");
+    audioPlayer.play("vlc", "far far away.vlc");
+    audioPlayer.play("avi", "mind me.avi");
   }
 }
 
-new AdapterPatternDemo([]);
+new AdapterPatternDemo();
 // Playing mp3 file. Name: beyond the horizon.mp3
 // Playing mp4 file. Name: alone.mp4
 // Playing vlc file. Name: far far away.vlc

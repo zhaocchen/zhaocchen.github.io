@@ -10,15 +10,22 @@ description:
 
 
 
-装饰器模式允许向一个现有的对象添加新的功能， 同时不改变其结构。
+相比生成子类更加灵活。
 
 ### 意图
 
+动态地给一个对象添加一些额外的职责， 同时不改变原有内部结构。
+
 ### 场景
+
+- 需要不修改代码情况下使用对象， 且要求运行时为对象新增额外的行为
+- 用继承来扩展对象行为的方案难以实现或者根本不可行
 
 应用：
 
 ### 缺点
+
+多层装饰比较复杂
 
 ### 实现
 
@@ -63,6 +70,7 @@ class RedShapeDecorator extends ShapeDecorator {
     this.decoratedShape.draw();
     this.setRedBorder(this.decoratedShape);
   }
+  
   private setRedBorder(decoratedShape: Shape): void {
     console.log("Border Color: Red");
   }
@@ -77,7 +85,7 @@ class DecoratorPatternDemo {
   circle: Shape = new Circle();
   redCircle: ShapeDecorator = new RedShapeDecorator(new Circle());
   redRectangle: ShapeDecorator = new RedShapeDecorator(new Rectangle());
-  constructor(args: string[]) {
+  constructor() {
     console.log("Circle with normal border");
     this.circle.draw();
 
@@ -89,7 +97,7 @@ class DecoratorPatternDemo {
   }
 }
 
-new DecoratorPatternDemo([]);
+new DecoratorPatternDemo();
 // Circle with normal border
 // Shape: Circle
 

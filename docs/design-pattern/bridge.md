@@ -8,14 +8,21 @@ draft: false
 description: 
 ---
 
-
 ### 意图
 
+将一个大类或一系列紧密相关的类拆分成抽象和现实两个独立的层次结构，从而在开发是分别使用。
+
 ### 场景
+
+- 需要拆分或重组一个具有多功能的庞杂类
+- 需要在几个独立维度上扩展类
+- 需要运行时切换不同实现方法
 
 应用：
 
 ### 缺点
+
+高内聚增加代码复杂性
 
 ### 实现
 
@@ -46,6 +53,7 @@ abstract class Shape {
   constructor(drawAPI: DrawAPI) {
     this.drawAPI = drawAPI;
   }
+  
   public abstract draw(): void;
 }
 
@@ -72,15 +80,15 @@ class Circle extends Shape {
 ```ts
 // 5. 使用 Shape 和 DrawAPI 类画出不同颜色的圆
 class BridgePatternDemo {
-  redCircle: Shape = new Circle(100, 100, 10, new RedCircle());
-  greenCircle: Shape = new Circle(100, 100, 10, new GreenCircle());
-  constructor(args: string[]) {
-    this.redCircle.draw();
-    this.greenCircle.draw();
+  constructor() {
+    let redCircle: Shape = new Circle(100, 100, 10, new RedCircle());
+  	let greenCircle: Shape = new Circle(100, 100, 10, new GreenCircle());
+    redCircle.draw();
+    greenCircle.draw();
   }
 }
 
-new BridgePatternDemo([]);
+new BridgePatternDemo();
 // Drawing Circle[ color: red, radius: 10, x: 100, 100]
 // Drawing Circle[ color: green, radius: 10, x: 100, 100]
 ```

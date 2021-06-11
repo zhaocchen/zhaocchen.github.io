@@ -5,7 +5,7 @@ author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []
 draft: false
-description: 
+description:
 ---
 
 Flyweight Pattern (享元模式)， 主要用于减少创建对象的数量， 以减少内存占用和提高性能。
@@ -33,54 +33,62 @@ Flyweight Pattern (享元模式)， 主要用于减少创建对象的数量， �
 
 ```ts
 //  1. 创建一个接口
- interface Shape {
-    draw(): void;
- }
+interface Shape {
+  draw(): void;
+}
 
 //  2. 创建实现接口的实体类
- class Circle implements Shape {
-    private color: string;
-    private x: number = 0;
-    private y: number = 0;
-    private radius: number = 0;
-  
-    constructor(color: string){
-        this.color = color;     
-     }
-  
-    public setX(x: number): void {
-       this.x = x;
-    }
-  
-    public setY(y: number): void {
-       this.y = y;
-    }
-  
-    public setRadius(radius: number): void {
-       this.radius = radius;
-    }
-  
-    public draw(): void {
-       console.log("Circle: Draw() [Color : " + this.color 
-          +", x : " + this.x +", y :" + this.y +", radius :" + this.radius);
-    }
- }
+class Circle implements Shape {
+  private color: string;
+  private x: number = 0;
+  private y: number = 0;
+  private radius: number = 0;
 
- // 3. 创建一个工厂，生成基于给定信息的实体类的对象
-  class ShapeFactory {
-    private static circleMap = new Map<string, Shape>();
-  
-    public static getCircle(color: string): Shape {
-        let circle: Circle = <Circle>this.circleMap.get(color);
-  
-       if(circle == null) {
-          circle = new Circle(color);
-          this.circleMap.set(color, circle);
-          console.log("Creating circle of color : " + color);
-       }
-       return circle;
+  constructor(color: string) {
+    this.color = color;
+  }
+
+  public setX(x: number): void {
+    this.x = x;
+  }
+
+  public setY(y: number): void {
+    this.y = y;
+  }
+
+  public setRadius(radius: number): void {
+    this.radius = radius;
+  }
+
+  public draw(): void {
+    console.log(
+      "Circle: Draw() [Color : " +
+        this.color +
+        ", x : " +
+        this.x +
+        ", y :" +
+        this.y +
+        ", radius :" +
+        this.radius
+    );
+  }
+}
+
+// 3. 创建一个工厂，生成基于给定信息的实体类的对象
+class ShapeFactory {
+  private static circleMap = new Map<string, Shape>();
+
+  public static getCircle(color: string): Shape {
+    let circle: Circle = <Circle>this.circleMap.get(color);
+
+    if (circle == null) {
+      circle = new Circle(color);
+      this.circleMap.set(color, circle);
+      console.log("Creating circle of color : " + color);
     }
- }
+    return circle;
+  }
+}
 ```
 
 测试
@@ -88,26 +96,31 @@ Flyweight Pattern (享元模式)， 主要用于减少创建对象的数量， �
 ```ts
 //  4. 使用该工厂，通过传递颜色信息来获取实体类的对象
 class FlyweightPatternDemo {
-    private static colors: string[] = [ "Red", "Green", "Blue", "White", "Black" ];
-    constructor() {
-        for(let i: number=0; i < 20; ++i) {
-            let circle: Circle = <Circle>ShapeFactory.getCircle(FlyweightPatternDemo.getRandomColor());
-              circle.setX(FlyweightPatternDemo.getRandomX());
-              circle.setY(FlyweightPatternDemo.getRandomY());
-              circle.setRadius(100);
-              circle.draw();
-           }
+  private static colors: string[] = ["Red", "Green", "Blue", "White", "Black"];
+  constructor() {
+    for (let i: number = 0; i < 20; ++i) {
+      let circle: Circle = <Circle>(
+        ShapeFactory.getCircle(FlyweightPatternDemo.getRandomColor())
+      );
+      circle.setX(FlyweightPatternDemo.getRandomX());
+      circle.setY(FlyweightPatternDemo.getRandomY());
+      circle.setRadius(100);
+      circle.draw();
     }
-    private static getRandomColor(): string {
-       return this.colors[Math.floor((Math.random()*this.colors.length))];
-    }
-    private static getRandomX(): number {
-       return Math.floor(Math.random()*100 );
-    }
-    private static getRandomY(): number {
-       return Math.floor(Math.random()*100);
-    }
- }
+  }
+
+  private static getRandomColor(): string {
+    return this.colors[Math.floor(Math.random() * this.colors.length)];
+  }
+
+  private static getRandomX(): number {
+    return Math.floor(Math.random() * 100);
+  }
+
+  private static getRandomY(): number {
+    return Math.floor(Math.random() * 100);
+  }
+}
 //  test
 new FlyweightPatternDemo();
 

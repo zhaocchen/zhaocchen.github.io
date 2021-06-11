@@ -8,14 +8,21 @@ draft: false
 description: 
 ---
 
-
 ### 意图
 
+将一个请求封装成一个对象， 不同的请求对客户进行参数化
+
 ### 场景
+
+- 需要通过操作来参数化对象
+- 需要将操作放入队列中、操作的执行或者远程执行操作
+- 需要支持操作回滚功能
 
 应用：
 
 ### 缺点
+
+系统存在过多的具体命令类（发送者和接受者之间增加了一个全新的层次）
 
 ### 实现
 
@@ -50,6 +57,7 @@ class BuyStock implements Order {
     this.abcStock.buy();
   }
 }
+
 class SellStock implements Order {
   private abcStock: Stock;
   constructor(abcStock: Stock) {

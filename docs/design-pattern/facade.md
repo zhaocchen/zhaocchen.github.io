@@ -8,14 +8,22 @@ draft: false
 description: 
 ---
 
+定义一个高层接口，更方便的读取复杂类。
 
 ### 意图
 
+为程序库、框架或者其他复杂类提供一个简单的接口
+
 ### 场景
+
+- 需要一个指向复杂子系统的直接接口，且该接口的功能有限
+- 需要将子系统组织为多层结构
 
 应用：
 
 ### 缺点
+
+不符合开闭原则；修改困难；无法继承、重写
 
 ### 实现
 
@@ -31,11 +39,13 @@ class Rectangle implements Shape {
     console.log("Rectangle::draw()");
   }
 }
+
 class Square implements Shape {
   public draw(): void {
     console.log("Square::draw()");
   }
 }
+
 class Circle implements Shape {
   public draw(): void {
     console.log("Circle::draw()");
@@ -56,9 +66,11 @@ class ShapeMaker {
   public drawCircle(): void {
     this.circle.draw();
   }
+  
   public drawRectangle(): void {
     this.rectangle.draw();
   }
+  
   public drawSquare(): void {
     this.square.draw();
   }
@@ -70,15 +82,15 @@ class ShapeMaker {
 ```ts
 // 4. 使用该外观类画出各种类型的形状
 class FacadePatternDemo {
-  shapeMaker: ShapeMaker = new ShapeMaker();
-  constructor(args: string[]) {
-    this.shapeMaker.drawCircle();
-    this.shapeMaker.drawRectangle();
-    this.shapeMaker.drawSquare();
+  constructor() {
+    let shapeMaker: ShapeMaker = new ShapeMaker();
+    shapeMaker.drawCircle();
+    shapeMaker.drawRectangle();
+    shapeMaker.drawSquare();
   }
 }
 
-new FacadePatternDemo([]);
+new FacadePatternDemo();
 // Circle::draw()
 // Rectangle::draw()
 // Square::draw()

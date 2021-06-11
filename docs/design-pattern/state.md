@@ -8,41 +8,36 @@ draft: false
 description: 
 ---
 
-[https://refactoringguru.cn/design-patterns/state](https://refactoringguru.cn/design-patterns/state)
-[https://refactoringguru.cn/design-patterns/state/typescript/example](https://refactoringguru.cn/design-patterns/state/typescript/example)
-[https://mp.weixin.qq.com/s/XSR401_iu5jfQBZaEM4MPg](https://mp.weixin.qq.com/s/XSR401_iu5jfQBZaEM4MPg)
 
-一个对象的内部状态变化时改变其行为， 使其看上去就像改变了自身所属的类一样。
-涉及， 有限状态机
+涉及: 有限状态机
+
 状态机通常由众多条件运算符 （ `if`或 `switch` ） 实现， 可根据对象的当前状态选择相应的行为。  
 
 📢 所有状态抽象到一个类中（原始对象/上下文）， 并保存一个指向当前状的状态对象的引用。
 
-结构：
-
-1. 上下文
-1. 状态
-1. 当前状态
-1. 状态切换操作
-
 ### 意图
 
+一个对象的内部状态变化时改变其行为， 使其看上去就像改变了自身所属的类一样。
+
 ### 场景
+
+- 需要依据当前状态进行不同行为，且状态多、状态相关代码变更频繁
+- 需要依据成员变量的当前状态改变自身行为的类， 且需要使用大量条件语句
+- 相似状态和基于条件的状态机转换中存在许多重复代码
 
 应用：
 
 ### 缺点
 
-优势
+- 不适用状态较少
+- 开闭原则支持不友好
 
-- 职责单一
-- 开闭
+### 结构：
 
-劣势
-
-- 不使用状态较少
-
-###
+1. 上下文
+1. 状态
+1. 当前状态
+1. 状态切换操作
 
 ### 实现
 

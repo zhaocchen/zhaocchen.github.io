@@ -8,14 +8,21 @@ draft: false
 description: 
 ---
 
-
 ### 意图
 
+组成链的多个对象，把请求向下传递， 直至被处理为止
+
 ### 场景
+
+- 需要使用不同方式处理不同种类请求，而且请求类型和预先未知
+- 需要按顺序执行多个处理者
+- 所需处理者及其顺序必须运行时进行改变
 
 应用：
 
 ### 缺点
+
+部分请求可能未被处理
 
 ### 实现
 
@@ -86,7 +93,7 @@ class FileLogger extends AbstractLogger {
 //  3. 创建不同类型的记录器。
 // 赋予它们不同的错误级别，并在每个记录器中设置下一个记录器。每个记录器中的下一个记录器代表的是链的一部分
 class ChainPatternDemo {
- constructor(args: string[]) {
+ constructor() {
   let loggerChain: AbstractLogger = ChainPatternDemo.getChainOfLoggers();
   loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
   loggerChain.logMessage(AbstractLogger.DEBUG,
@@ -105,7 +112,7 @@ class ChainPatternDemo {
  }
 }
 
-new ChainPatternDemo([]);
+new ChainPatternDemo();
 //  Standard Console::Logger: This is an information.
 //  File::Logger: This is a debug level information.
 //  Standard Console::Logger: This is a debug level information.
