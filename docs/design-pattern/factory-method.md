@@ -8,9 +8,11 @@ draft: false
 description: 
 ---
 
+工厂方法模式是**最常见**的设计模式之一。
+
 ### 意图
 
-工厂方法模式（最常见）， 父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。
+父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。
 
 ### 场景
 
@@ -59,9 +61,7 @@ class Circle implements Shape {
 class ShapeFactory {
   //使用 getShape 方法获取形状类型的对象
   public getShape(shapeType: string): Shape {
-    if (shapeType == null) {
-      return null;
-    }
+    if (shapeType == null)  return null;
     if (shapeType.toLocaleUpperCase() == "CIRCLE") {
       return new Circle();
     } else if (shapeType.toLocaleUpperCase() == "RECTANGLE") {
@@ -72,9 +72,6 @@ class ShapeFactory {
     return null;
   }
 }
-
-
-
 ```
 
 测试
@@ -82,26 +79,26 @@ class ShapeFactory {
 ```ts
 // 4. 使用该工厂，通过传递类型信息来获取实体类的对象
 class FactoryPatternDemo {
-  shapeFactory: ShapeFactory = new ShapeFactory();
-  constructor(args: string[]) {
+  constructor() {
+    let shapeFactory: ShapeFactory = new ShapeFactory();
     //获取 Circle 的对象，并调用它的 draw 方法
-    let shape1: Shape = this.shapeFactory.getShape("CIRCLE");
+    let shape1: Shape = shapeFactory.getShape("CIRCLE");
     //调用 Circle 的 draw 方法
     shape1.draw();
 
     //获取 Rectangle 的对象，并调用它的 draw 方法
-    let shape2: Shape = this.shapeFactory.getShape("RECTANGLE");
+    let shape2: Shape = shapeFactory.getShape("RECTANGLE");
     //调用 Rectangle 的 draw 方法
     shape2.draw();
 
     //获取 Square 的对象，并调用它的 draw 方法
-    let shape3: Shape = this.shapeFactory.getShape("SQUARE");
+    let shape3: Shape = shapeFactory.getShape("SQUARE");
     //调用 Square 的 draw 方法
     shape3.draw();
   }
 }
 
-new FactoryPatternDemo([]);
+new FactoryPatternDemo();
 // Inside Circle::draw() method.
 // Inside Rectangle::draw() method.
 // Inside Square::draw() method.

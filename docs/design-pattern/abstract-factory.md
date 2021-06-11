@@ -21,6 +21,8 @@ description:
 
 ### 缺点
 
+采用该模式需要向应用中引入众多接口和类， 代码可能会比之前更加复杂
+
 ### 实现
 
 ```typescript
@@ -81,9 +83,7 @@ abstract class AbstractFactory {
 // 6. 创建扩展了 AbstractFactory 的工厂类，基于给定的信息生成实体类的对象
 class ShapeFactory extends AbstractFactory {
   public getShape(shapeType: string): Shape {
-    if (shapeType == null) {
-      return null;
-    }
+    if (shapeType == null) return null;
     if (shapeType.toLocaleUpperCase() == "CIRCLE") {
       return new Circle();
     } else if (shapeType.toLocaleUpperCase() == "RECTANGLE") {
@@ -93,21 +93,19 @@ class ShapeFactory extends AbstractFactory {
     }
     return null;
   }
+  
   public getColor(color: string): Color {
     return null;
   }
 }
 
 class ColorFactory extends AbstractFactory {
-
   public getShape(shapeType: string): Shape {
     return null;
   }
 
   public getColor(color: string): Color {
-    if (color == null) {
-      return null;
-    }
+    if (color == null) return null;
     if (color.toLocaleUpperCase() == "RED") {
       return new Red();
     } else if (color.toLocaleUpperCase() == "GREEN") {
@@ -138,45 +136,44 @@ class FactoryProducer {
 ```ts
 // 8. 使用 FactoryProducer 来获取 AbstractFactory，通过传递类型信息来获取实体类的对象
 class AbstractFactoryPatternDemo {
-  //获取形状工厂
-  shapeFactory: AbstractFactory = FactoryProducer.getFactory("SHAPE");
-  //获取颜色工厂
-  colorFactory: AbstractFactory = FactoryProducer.getFactory("COLOR");
-
-  constructor(args: string[]) {
+  constructor() {
+    //获取形状工厂
+    let shapeFactory: AbstractFactory = FactoryProducer.getFactory("SHAPE");
+    //获取颜色工厂
+    let colorFactory: AbstractFactory = FactoryProducer.getFactory("COLOR");
     //获取形状为 Circle 的对象
-    const shape1: Shape = this.shapeFactory.getShape("CIRCLE");
+    const shape1: Shape = shapeFactory.getShape("CIRCLE");
     //调用 Circle 的 draw 方法
     shape1.draw();
 
     //获取形状为 Rectangle 的对象
-    const shape2: Shape = this.shapeFactory.getShape("RECTANGLE");
+    const shape2: Shape = shapeFactory.getShape("RECTANGLE");
     //调用 Rectangle 的 draw 方法
     shape2.draw();
 
     //获取形状为 Square 的对象
-    const shape3: Shape = this.shapeFactory.getShape("SQUARE");
+    const shape3: Shape = shapeFactory.getShape("SQUARE");
     //调用 Square 的 draw 方法
     shape3.draw();
 
     //获取颜色为 Red 的对象
-    const color1: Color = this.colorFactory.getColor("RED");
+    const color1: Color = colorFactory.getColor("RED");
     //调用 Red 的 fill 方法
     color1.fill();
 
     //获取颜色为 Green 的对象
-    const color2: Color = this.colorFactory.getColor("Green");
+    const color2: Color = colorFactory.getColor("Green");
     //调用 Green 的 fill 方法
     color2.fill();
 
     //获取颜色为 Blue 的对象
-    const color3: Color = this.colorFactory.getColor("BLUE");
+    const color3: Color = colorFactory.getColor("BLUE");
     //调用 Blue 的 fill 方法
     color3.fill();
   }
 }
 
-new AbstractFactoryPatternDemo([]);
+new AbstractFactoryPatternDemo();
 // Inside Circle::draw() method.
 // Inside Rectangle::draw() method.
 // Inside Square::draw() method.

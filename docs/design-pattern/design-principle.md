@@ -131,3 +131,9 @@ Program Intently and Expressively， （也叫包容性原则）编程要表达�
 - 类之间耦合度降低
 
 📢
+
+### 参考
+
+<https://refactoring.guru/design-patterns>
+
+<https://www.runoob.com/design-pattern/design-pattern-tutorial.html>
