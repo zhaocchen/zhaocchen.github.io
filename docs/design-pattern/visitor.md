@@ -1,5 +1,5 @@
 ---
-slug: template
+slug: visitor
 title: 行为型 | 访问者模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
@@ -8,14 +8,24 @@ draft: false
 description: 
 ---
 
-
 ### 意图
 
+主要将数据结构与数据操作分离。
+
 ### 场景
+
+- 需要对一个复杂对象结构中的所有元素执行某些操作
+- 需要清理辅助行为的业务逻辑
+- 某行为仅在类层次结构中的一些类中的意义（在其他类中没有意义）
 
 应用：
 
 ### 缺点
+
+- 违背迪米特原则
+- 违背依赖倒置原则
+- 每次在元素层析结构中添加或移除一个子类， 要更新所有的访问者
+- 访问者同某个元素进行交互时，可能没有访问元素私有成员变量和方法的必要权限
 
 ### 实现
 
@@ -49,6 +59,7 @@ class Computer implements ComputerPart {
  constructor() {
   this.parts = [new Mouse(), new Keyboard(), new Monitor()];
  }
+  
  public accept(computerPartVisitor: ComputerPartVisitor): void {
   for (let i: number = 0; i < this.parts.length; i++) {
    this.parts[i].accept(computerPartVisitor);

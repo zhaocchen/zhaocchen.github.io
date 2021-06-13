@@ -27,8 +27,8 @@ module.exports = {
       'design-pattern/observer',
       'design-pattern/state',
       'design-pattern/strategy',
-      'design-pattern/visitor',
       'design-pattern/template',
+      'design-pattern/visitor',
     ],
     '白板系列': [
       'whiteboard/bisect_right',
