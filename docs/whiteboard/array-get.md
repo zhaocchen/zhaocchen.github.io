@@ -3,7 +3,7 @@ title: proxy实现负索引数组
 ---
 
 #### 实现：
-```
+```js
 function wrap (arr) {
     return new Proxy(arr, {
         get(target, key, receiver) {
@@ -21,7 +21,7 @@ function wrap (arr) {
 
 
 #### 测试：
-```
+```js
 // case
 let a = wrap([1,2,3,4]);
 
@@ -33,7 +33,7 @@ console.log(a[-1]);
 
 
 #### 参考：
-```
+```js
 let proxiedproduct = new Proxy(product, {
   get(target, key, receiver) {
     console.log('get', target, key, receiver);
@@ -42,3 +42,4 @@ let proxiedproduct = new Proxy(product, {
   }
 });
 ```
+

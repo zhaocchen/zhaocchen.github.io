@@ -23,7 +23,7 @@ title: 实现Array.reduce
 
 
 #### 实现
-```
+```js
 Array.prototype._reduce = function (callback, initialValue = 0) {
     let arr = Array.prototype.slice.call(this);
     let acc =  initialValue;
@@ -38,7 +38,7 @@ Array.prototype._reduce = function (callback, initialValue = 0) {
 
 
 #### 测试
-```
+```js
 // case
 var testArr = [1, 2, 3, 4]
 

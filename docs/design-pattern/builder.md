@@ -5,12 +5,14 @@ author: Zhao chen
 author_url: https://github.com/zhaocchen
 tags: []
 draft: false
-description: 
+description:
 ---
+
+相比工厂模式， 生成器模式更加关注"零件"装配的顺序。
 
 ### 意图
 
-将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示
+将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
 
 ### 场景
 
@@ -22,9 +24,9 @@ description:
 
 ### 缺点
 
+需要新增多个类， 整体复杂度增加。
+
 ### 实现
-
-
 
 ```typescript
 // 1. 创建一个表示食物条目和食物包装的接口
@@ -54,16 +56,21 @@ class Bottle implements Packing {
 // 3. 创建实现 Item 接口的抽象类，该类提供了默认的功能
 abstract class Burger implements Item {
   public abstract name(): string;
+
   public packing(): Packing {
     return new Wrapper();
   }
+
   public abstract price(): number;
 }
+
 abstract class ColdDrink implements Item {
   public abstract name(): string;
+
   public packing(): Packing {
     return new Bottle();
   }
+
   public abstract price(): number;
 }
 
@@ -72,6 +79,7 @@ class VegBurger extends Burger {
   public price(): number {
     return 25.0;
   }
+
   public name(): string {
     return "Veg Burger";
   }
@@ -81,6 +89,7 @@ class ChickenBurger extends Burger {
   public price(): number {
     return 50.5;
   }
+
   public name(): string {
     return "Chicken Burger";
   }
@@ -100,6 +109,7 @@ class Pepsi extends ColdDrink {
   public price(): number {
     return 35.0;
   }
+
   public name(): string {
     return "Pepsi";
   }
@@ -108,9 +118,11 @@ class Pepsi extends ColdDrink {
 // 5. 创建一个 Meal 类，带有上面定义的 Item 对象
 class Meal {
   private items: Array<Item> = new Array<Item>();
+
   public addItem(item: Item): void {
     this.items.push(item);
   }
+
   public getCost(): number {
     let cost: number = 0.0;
     for (let item of this.items) {
@@ -121,8 +133,11 @@ class Meal {
 
   showItems(): void {
     for (let item of this.items) {
-      console.log("Item : " + item.name(), ", Packing : " + item.packing().pack(), ", Price : " + item.price());
-
+      console.log(
+        "Item : " + item.name(),
+        ", Packing : " + item.packing().pack(),
+        ", Price : " + item.price()
+      );
     }
   }
 }
@@ -135,6 +150,7 @@ class MealBuilder {
     meal.addItem(new Coke());
     return meal;
   }
+
   public prepareNonVegMeal(): Meal {
     let meal: Meal = new Meal();
     meal.addItem(new ChickenBurger());
@@ -149,20 +165,20 @@ class MealBuilder {
 ```ts
 // 7. BuiderPatternDemo 使用 MealBuilder 来演示建造者模式
 class BuilderPatternDemo {
-  mealBuilder: MealBuilder = new MealBuilder();
-  vegMeal: Meal = this.mealBuilder.prepareVegMeal();
-  nonVegMeal: Meal = this.mealBuilder.prepareNonVegMeal();
-  constructor(args: string[]) {
+  constructor() {
+    let mealBuilder: MealBuilder = new MealBuilder();
+    let vegMeal: Meal = mealBuilder.prepareVegMeal();
+    let nonVegMeal: Meal = mealBuilder.prepareNonVegMeal();
     console.log("Veg Meal");
-    this.vegMeal.showItems();
-    console.log("Total Cost: " + this.vegMeal.getCost());
+    vegMeal.showItems();
+    console.log("Total Cost: " + vegMeal.getCost());
     console.log("\n\nNon-Veg Meal");
-    this.nonVegMeal.showItems();
-    console.log("Total Cost: " + this.nonVegMeal.getCost());
+    nonVegMeal.showItems();
+    console.log("Total Cost: " + nonVegMeal.getCost());
   }
 }
 
-new BuilderPatternDemo([]);
+new BuilderPatternDemo();
 // Veg Meal
 // Item : Veg Burger , Packing : Wrapper , Price : 25
 // Item : Coke , Packing : Bottle , Price : 30

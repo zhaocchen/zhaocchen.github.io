@@ -5,7 +5,7 @@ title: 实现Promise.all
 [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 
 
-```
+```js
 Promise.all = function (iterator) {
     return new Promise((resolve, reject) => {
         let count = 0;
@@ -26,7 +26,7 @@ Promise.all = function (iterator) {
 }
 ```
 简单测试
-```
+```js
 var p1=Promise.resolve(1),
 p2=Promise.resolve(2),
 p3=Promise.resolve(3);
@@ -35,7 +35,6 @@ Promise.all([p3, p1, p2]).then(values => {
     console.log(values) // [ 3, 1, 2 ]
 })
 ```
-
 
 参考：
 [https://github.com/YvetteLau/Blog/issues/2](https://github.com/YvetteLau/Blog/issues/2)

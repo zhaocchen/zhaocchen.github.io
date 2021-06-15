@@ -5,7 +5,7 @@ title: 实现promisify
 完成下面的编程
 
 
-```
+```js
 readFile('package.json', 'utf8', (err, data) => {
   console.log(data);
 });
@@ -20,7 +20,7 @@ function promiseify(){
 
 
 参考
-```
+```js
 var readFile = require('fs').readFile;
 
 async function main() {
@@ -53,7 +53,7 @@ main();
 #### 正常用法
 
 
-```
+```js
 var readFile = require('fs').readFile
 
 readFile('package.json', 'utf8', (err, data) => {
@@ -64,7 +64,7 @@ readFile('package.json', 'utf8', (err, data) => {
 ```
 
 
-```
+```js
 var {promisify} = require('util')
 var readFile = require('fs').readFile
 
@@ -74,7 +74,7 @@ promisify(readFile)('package.json', {encoding: 'utf8'})
 })
 ```
 ####  async/await写法
-```
+```js
 var {promisify} = require('util')
 var readFile = require('fs').readFile
 
@@ -86,7 +86,7 @@ async function main() {
 main()
 ```
 ### 手写promisify（考察关键）
-```
+```js
 //   异步流程改善，把包含callback的异步函数promise化
 function my_promisify(fn) {
   return function (...args) {

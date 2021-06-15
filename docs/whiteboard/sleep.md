@@ -7,7 +7,7 @@ title: 实现sleep函数
 
 实现
 
-```
+```js
 function sleep (callback, delay) {
     if (typeof callback === 'function') {
         setTimeout(callback, delay)
@@ -21,7 +21,7 @@ sleep(() => {
 
 
 promise实现
-```
+```js
 function sleep (delay) {
     return new Promise((resolve, reject) => setTimeout(resolve, delay))
 }
@@ -33,7 +33,7 @@ sleep(1000).then(() => {
 
 
 async/await实现
-```
+```js
 function sleep (delay) {
     return new Promise((resolve, reject) => setTimeout(resolve, delay))
 }
@@ -47,9 +47,7 @@ async function foo() {
 foo()
 ```
 generator 实现
-```
-
-
+```js
 function* sleep (delay) {
     yield new Promise((resolve, reject) => setTimeout(resolve, delay))
 }
