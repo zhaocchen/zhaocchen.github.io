@@ -1,4 +1,5 @@
 ---
+slug: /
 title: 设计原则
 author: Zhao chen
 author_url: https://github.com/zhaocchen

@@ -1,5 +1,5 @@
 ---
-slug: /
+slug: singleton
 title: 创建型 | 单例模式
 author: Zhao chen
 author_url: https://github.com/zhaocchen
