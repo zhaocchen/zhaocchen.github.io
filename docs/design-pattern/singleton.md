@@ -21,6 +21,10 @@ description:
 
 应用：
 
+- 线程池
+- 全局缓存
+- 浏览器中的window对象
+
 ### 缺点
 
 - 违反单一职责原则
@@ -61,4 +65,47 @@ class SingletonPatternDemo {
 
 new SingletonPatternDemo();
 // Hello World!
+```
+
+#### 案例: 弹窗
+
+通过闭包存储实例，并进行判断，不管点击登录按钮多少次，只创建一个登录浮窗实例
+
+⚠️ 销毁组件前清除闭包
+
+```html
+<button id="clickBtn">测试按钮</button>
+<script>
+let createSingle = (function () {
+    let instance = {};
+    return function (fn) {
+        if (!instance[fn.name]) {
+            instance[fn.name] = fn.apply(this, arguments);
+        }
+        return instance[fn.name]
+    }
+})();
+
+function createAdd () {
+    const el = document.createElement('div');
+    el.innerHTML = '新增';
+    el.style.display = 'none';
+    document.body.appendChild(el);
+    return el;
+}
+function createEdit () {
+    const el = document.createElement('div');
+    el.innerHTML = '编辑';
+    el.style.display = 'none';
+    document.body.appendChild(el);
+    return el;
+}
+
+document.getElementById('clickBtn').onclick = () => {
+    let add = createSingle(createAdd);
+    let edit = createSingle(createEdit);
+    add.style.display = 'block';
+    edit.style.display = 'block';
+}
+</script>
 ```

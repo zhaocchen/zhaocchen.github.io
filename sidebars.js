@@ -38,6 +38,15 @@ module.exports = {
     },
     {
       type: 'category',
+      label: '剑指Offer(JavaScript版)',
+      collapsed: true,
+      items: [
+        'lcof/huawei',
+        'lcof/rest'
+      ]
+    },
+    {
+      type: 'category',
       label: '白板系列',
       collapsed: true,
       items: [
@@ -56,15 +65,15 @@ module.exports = {
         'whiteboard/event-emitter',
         'whiteboard/sleep',
         'whiteboard/array-get',
-        'whiteboard/drag',
+        
       ]
     },
     {
       type: 'category',
-      label: '剑指Offer(JavaScript版)',
+      label: '业务实现',
       collapsed: true,
       items: [
-        'lcof/rest'
+        'feature/drag',
       ]
     },
     {

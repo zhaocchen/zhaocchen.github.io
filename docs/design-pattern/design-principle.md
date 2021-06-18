@@ -138,3 +138,5 @@ Program Intently and Expressively， （也叫包容性原则）编程要表达�
 <https://refactoring.guru/design-patterns>
 
 <https://www.runoob.com/design-pattern/design-pattern-tutorial.html>
+
+<https://jelly.jd.com/articlelist/exp>

@@ -87,3 +87,140 @@ new StrategyPatternDemo();
 // 10 - 5 = 5
 // 10 * 5 = 50
 ```
+
+#### 案例：计算年终奖
+
+```js
+const strategies = {
+  S: (salary) => {
+    return salary * 4;
+  },
+  A: (salary) => {
+    return salary * 3;
+  },
+  B: (salary) => {
+    return salary * 2;
+  },
+};
+
+const calculateBonus = (level, salary) => {
+  return strategies[level.toUpperCase()](salary);
+};
+
+console.log(calculateBonus("s", 20000));
+console.log(calculateBonus("a", 10000));
+// 80000
+// 30000
+```
+
+#### 案例：表单校验
+
+```html
+    <form action="#" id="registerForm" method="post">
+      请输入用户名：
+      <input type="text" name="userName" />
+      <button>提交</button>
+    </form>
+    <script>
+      const registerForm = document.getElementById("registerForm");
+      const rules = {
+        userName: [
+          {
+            strategy: "isNonEmpty",
+            errorMsg: "用户名不能为空",
+          },
+          {
+            strategy: "minLength:10",
+            errorMsg: "用户名长度不能小于10位",
+          },
+        ],
+      };
+
+      // 策略类
+      var strategies = {
+        isNonEmpty: function (value, errorMsg) {
+          if (value === "") {
+            return errorMsg;
+          }
+        },
+        minLength: function (value, errorMsg, length) {
+          if (value.length < length) {
+            return errorMsg;
+          }
+        },
+      };
+
+      // 表单提交
+      registerForm.onsubmit = () => {
+        const errorMsg = validatorFn();
+        if (errorMsg) {
+          alert(errorMsg);
+          return false;
+        }
+        return false;
+      };
+
+      // ######## 外部函数
+      // 验证类
+      class Validator {
+        constructor() {
+          this.cache = [];
+        }
+
+        // 添加验证方法
+        add({ dom, rules }) {
+          rules.forEach((rule) => {
+            const { strategy, errorMsg } = rule;
+            const [strategyName, strategyCondition] = strategy.split(":");
+            const { value } = dom;
+            this.cache.push(
+              strategies[strategyName].bind(
+                dom,
+                value,
+                errorMsg,
+                strategyCondition
+              )
+            );
+          });
+        }
+
+        // 开始验证
+        start() {
+          let errorMsg;
+          this.cache.some((cacheItem) => {
+            const _errorMsg = cacheItem();
+            if (_errorMsg) {
+              errorMsg = _errorMsg;
+              return true;
+            } else {
+              return false;
+            }
+          });
+
+          return errorMsg;
+        }
+      }
+
+      // 验证函数
+      function validatorFn() {
+        const validator = new Validator();
+        Object.keys(rules).forEach((key) => {
+          validator.add({
+            dom: registerForm[key],
+            rules: rules[key],
+          });
+        });
+
+        const errorMsg = validator.start();
+        return errorMsg;
+      }
+    </script>
+```
+
+延伸：element表单校验
+
+例子 https://element.eleme.io/#/zh-CN/component/form
+
+源码 https://github.com/ElemeFE/element/blob/dev/packages/form/src/form-item.vue#L212
+
+插件 [async-validator](https://www.npmjs.com/package/async-validator)
