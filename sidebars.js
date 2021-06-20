@@ -1,6 +1,6 @@
 module.exports = {
   docs: [
-    // 'introduction',
+    'introduction',
     {
       type: 'category',
       label: '设计模式(TypeScript版)',
@@ -76,6 +76,15 @@ module.exports = {
         'feature/drag',
       ]
     },
+    // {
+    //   type: 'category',
+    //   label: '可视化',
+    //   collapsed: true,
+    //   items: [
+    //     'vision/introduction',
+    //     'vision/pie',
+    //   ]
+    // },
     {
       type: 'category',
       label: 'Docusaurus Tutorial',
