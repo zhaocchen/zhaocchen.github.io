@@ -38,7 +38,7 @@ function maxSubArray(nums: number[]): number {
 };
 ```
 
-### day 2: 
+### day 2: 数组
 
 #### [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
@@ -76,7 +76,7 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 
 
 
-### day 3:
+### day 3: 数组
 
 #### [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
 
@@ -120,50 +120,83 @@ function maxProfit(prices: number[]): number {
 
 
 
-### day 4:
+### day 4: 数组
+
+#### [566. 重塑矩阵](https://leetcode-cn.com/problems/reshape-the-matrix/)
+
+```typescript
+function matrixReshape(mat: number[][], r: number, c: number): number[][] {
+    let m = mat.length, n = mat[0].length;
+    if (m * n != r * c) return mat;
+    let ans = Array.from({length: r}, v => new Array(c).fill(0));
+    let k = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            ans[Math.floor(k / c)][k % c] = mat[i][j];
+            ++k;
+        }
+    }
+    return ans;
+};
+```
+
+#### [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/)
+
+```typescript
+function generate(numRows: number): number[][] {
+    if (numRows == 0) return [];
+    let ans = [[1]];
+    for (let i = 1; i < numRows; ++i) {
+        ans.push(new Array(i + 1).fill(1));
+        let half = i >> 1;
+        for (let j = 1;j <= half; ++j) {
+            let cur = ans[i - 1][j - 1] + ans[i - 1][j];
+            ans[i][j] = cur;
+            ans[i][i - j] = cur;
+        }
+    }
+    return ans;
+};
+```
+
+### day 5: 数组
+
+
+
+### day 6: 字符串
+
+
+
+### day 7: 链表
+
+
+
+### day 8: 链表
 
 
 
 
 
-### day 5:   
-
-
-
-### day 6: 
-
-
-
-### day 7: 
-
-
-
-### day 8: 
+### day 9: 栈/队列
 
 
 
 
 
-### day 9: 
+### day 10: 树（遍历）
 
 
 
-
-
-### day 10: 
-
-
-
-### day 11: 
+### day 11: 树
 
 
 
-### day 12: 
+### day 12: 树
 
 
 
-### day 13: 
+### day 13: 树
 
 
 
-### day 14: 
+### day 14: 树
