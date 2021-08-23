@@ -161,6 +161,66 @@ function generate(numRows: number): number[][] {
 
 ### day 5: 数组
 
+#### [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
+
+```typescript
+function isValidSudoku(board: string[][]): boolean {
+    let rows = Array.from({ length: 9 }, v => new Array(9).fill(false));
+    let cols = Array.from({ length: 9 }, v => new Array(9).fill(false));
+    let gong = Array.from({ length: 9 }, v => new Array(9).fill(false));
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j ++) {
+            let cur = board[i][j];
+            if (cur == '.') continue;
+            let k = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+            if (rows[i][cur] || cols[j][cur] || gong[k][cur]) return false;
+            rows[i][cur] = true;
+            cols[j][cur] = true;
+            gong[k][cur] = true;
+        }
+    }
+    return true;
+};
+```
+
+#### [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/)
+
+📢 空间复杂度O(1)
+
+```typescript
+/**
+ Do not return anything, modify matrix in-place instead.
+ */
+function setZeroes(matrix: number[][]): void {
+    let m = matrix.length, n = matrix[0].length;
+    let r0 = false;
+    // 标记
+    for (let i = 0; i < m ; i++) {
+        if (!matrix[i][0]) {
+            r0 = true;
+        }
+        for (let j = 1; j < n; j++) {
+            if (!matrix[i][j]) {
+                matrix[i][0] = 0;
+                matrix[0][j] = 0;
+            }
+        }
+    }
+   
+    // set
+    for (let i = m - 1; i >= 0; i--) {
+        for (let j = 1; j < n; j++) {
+            if (!matrix[i][0] || !matrix[0][j]) {
+                matrix[i][j] = 0;
+            }
+        }
+        if (r0) {
+            matrix[i][0] = 0;
+        }
+    }
+};
+```
+
 
 
 ### day 6: 字符串
