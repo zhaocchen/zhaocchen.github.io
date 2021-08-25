@@ -225,6 +225,54 @@ function setZeroes(matrix: number[][]): void {
 
 ### day 6: 字符串
 
+#### [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)
+
+```typescript
+function firstUniqChar(s: string): number {
+    let record = new Map();
+    for (let cur of [...s]) {
+        record.set(cur, record.has(cur))
+    }
+    for (let i =0 ; i < s.length; i++) {
+        if (!record.get(s[i])) return i;
+    }
+    return -1;
+};
+```
+
+#### [383. 赎金信](https://leetcode-cn.com/problems/ransom-note/)
+
+```typescript
+function canConstruct(ransomNote: string, magazine: string): boolean {
+    let counter = new Array(26).fill(0);
+    let base = 'a'.charCodeAt(0);
+    for (let s of magazine) {
+        ++counter[s.charCodeAt(0) - base];
+    }
+    for (let s of ransomNote) {
+        let idx = s.charCodeAt(0) - base;
+        if (counter[idx] == 0) return false;
+        --counter[idx];
+    }
+    return true;
+};
+```
+
+#### [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+
+```typescript
+function isAnagram(s: string, t: string): boolean {
+    if (s.length != t.length) return false;
+    let record = new Array(26).fill(0);
+    let base = 'a'.charCodeAt(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++record[s.charCodeAt(i) - base];
+        --record[t.charCodeAt(i) - base];
+    }
+    return record.every(v => v == 0);
+};
+```
+
 
 
 ### day 7: 链表
