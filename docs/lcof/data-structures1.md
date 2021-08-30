@@ -277,6 +277,57 @@ function isAnagram(s: string, t: string): boolean {
 
 ### day 7: 链表
 
+#### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+
+```typescript
+function hasCycle(head: ListNode | null): boolean {
+    let slow = head, fast = head;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow == fast) return true;
+    }
+    return false;
+};
+```
+
+#### [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+```typescript
+function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+    let dummy = new ListNode(0), head = dummy;
+    while (l1 != null && l2 != null) {
+        if (l1.val < l2.val) {
+            head.next = l1;
+            l1 = l1.next;
+        } else {
+            head.next = l2;
+            l2 = l2.next;
+        }
+        head = head.next;
+    }
+    head.next = l1 != null ? l1 : l2;
+    return dummy.next;
+};
+```
+
+#### [203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/)
+
+```typescript
+function removeElements(head: ListNode | null, val: number): ListNode | null {
+    let dummy: ListNode = new ListNode(0, head);
+    let cur: ListNode = dummy;
+    while (cur.next != null) {
+        if (cur.next.val == val) {
+            cur.next = cur.next.next;
+        } else {
+            cur = cur.next;
+        }
+    }
+    return dummy.next;
+};
+```
+
 
 
 ### day 8: 链表
