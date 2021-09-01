@@ -397,13 +397,118 @@ function isValid(s: string): boolean {
 #### [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 
 ```typescript
+class MyQueue {
+    stack1: number[];
+    stack2: number[];
+    constructor() {
+        this.stack1 = [];
+        this.stack2 = [];
+    }
+
+    push(x: number): void {
+        this.stack1.push(x);
+    }
+
+    pop(): number {
+        if (!this.stack2.length) {
+            while (this.stack1.length) {
+                this.stack2.push(this.stack1.pop());
+            }
+        }
+        return this.stack2.pop();
+    }
+
+    peek(): number {
+        if (!this.stack2.length) {
+            while (this.stack1.length) {
+                this.stack2.push(this.stack1.pop());
+            }
+        }
+        return this.stack2[this.stack2.length - 1];
+    }
+
+    empty(): boolean {
+        return !this.stack1.length && !this.stack2.length;
+    }
+}
 ```
 
 
 
-
-
 ### day 10: 树（遍历）
+
+#### [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+
+```typescript
+function preorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) return [];
+    let stack = [];
+    let ans = [];
+    while (root || stack.length) {
+        while (root) {
+            ans.push(root.val);
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        root = root.right;
+    }
+    return ans;
+};
+```
+
+
+
+#### [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+```typescript
+function inorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) return [];
+    let stack = [];
+    let ans = [];
+    while (root != null || stack.length > 0) {
+        if (root != null) {
+            stack.push(root);
+            root = root.left
+        } else {
+            root = stack.pop();
+            ans.push(root.val);
+            root = root.right;
+        }
+    }
+    return ans;
+};
+```
+
+
+
+#### [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
+
+```typescript
+function postorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) return [];
+    let stack = [];
+    let ans = [];
+    let prev = null;
+    while (root || stack.length) {
+        while (root) {
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        if (!root.right || root.right == prev) {
+            ans.push(root.val);
+            prev = root;
+            root = null;
+        } else {
+            stack.push(root);
+            root = root.right;
+        }
+        
+    }
+    return ans;
+};
+```
 
 
 
