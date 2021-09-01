@@ -332,11 +332,72 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
 
 ### day 8: 链表
 
+#### [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 
+```typescript
+function reverseList(head: ListNode | null): ListNode | null {
+    let prev = null;
+    let cur = head;
+    while (cur != null) {
+        let next = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
+};
+```
+
+#### [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+
+```typescript
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+    if (head == null || head.next == null) return head;
+    let cur = head;
+    while (cur !== null && cur.next !== null) {
+        if (cur.next.val == cur.val) {
+            cur.next = cur.next.next;
+        } else {
+            cur = cur.next;
+        }
+    }
+    return head;
+};
+```
 
 
 
 ### day 9: 栈/队列
+
+#### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+
+```typescript
+function isValid(s: string): boolean {
+    // 栈， 先进后出
+    let hashTable = new Map([
+        ['(', ')'],
+        ['{', '}'],
+        ['[', ']']
+    ]);
+    let stack = [];
+    for (let char of s) {
+        let last = stack[stack.length - 1];
+        if (stack.length > 0 && char == hashTable.get(last)) {
+            stack.pop();
+        } else {
+            stack.push(char);
+        }
+    }
+    return stack.length === 0;
+};
+```
+
+
+
+#### [232. 用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+
+```typescript
+```
 
 
 
