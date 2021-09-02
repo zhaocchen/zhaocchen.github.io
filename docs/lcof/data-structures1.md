@@ -514,9 +514,85 @@ function postorderTraversal(root: TreeNode | null): number[] {
 
 ### day 11: 树
 
+#### [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+
+```typescript
+function levelOrder(root: TreeNode | null): number[][] {
+    if (!root) return [];
+    let stack = [root];
+    let ans = [];
+    while (stack.length) {
+        let level = [];
+        let next = [];
+        for (let node of stack) {
+            level.push(node.val);
+            node.left && next.push(node.left);
+            node.right && next.push(node.right);
+        }
+        ans.push(level);
+        stack = next;
+    }
+    return ans;
+};
+```
+
+
+
+#### [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+
+```typescript
+function maxDepth(root: TreeNode | null): number {
+    if (!root) return 0;
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+};
+```
+
+
+
+#### [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
+
+```typescript
+function isSymmetric(root: TreeNode | null): boolean {
+    return isSame(root, root);
+};
+
+function isSame (root1: TreeNode | null, root2: TreeNode | null): boolean {
+    if (!root1 || !root2) return root1 == root2;
+    if (root1.val != root2.val) return false;
+    return isSame(root1.left, root2.right) && isSame(root1.right, root2.left);
+}
+```
+
 
 
 ### day 12: 树
+
+#### [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+
+```typescript
+function invertTree(root: TreeNode | null): TreeNode | null {
+    if (!root) return root;
+    [root.left, root.right] = [root.right, root.left];
+    invertTree(root.left);
+    invertTree(root.right);
+    return root;
+};
+```
+
+
+
+#### [112. 路径总和](https://leetcode-cn.com/problems/path-sum/)
+
+```typescript
+function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
+    if (!root) return false;
+    targetSum -= root.val;
+    if (!root.left && !root.right && targetSum == 0) return true;
+    if (root.left && hasPathSum(root.left, targetSum)) return true;
+    if (root.right && hasPathSum(root.right, targetSum)) return true;
+    return false;
+};
+```
 
 
 
