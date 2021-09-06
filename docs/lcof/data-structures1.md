@@ -598,6 +598,74 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
 
 ### day 13: 树
 
+#### [700. 二叉搜索树中的搜索](https://leetcode-cn.com/problems/search-in-a-binary-search-tree/)
+
+```typescript
+function searchBST(root: TreeNode | null, val: number): TreeNode | null {
+    if (!root) return null;
+    if (root.val == val) return root;
+    return root.val < val ? searchBST(root.right, val) : searchBST(root.left, val);
+};
+```
+
+
+
+#### [701. 二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+
+```typescript
+function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
+    if (!root) return new TreeNode(val);
+    if (root.val < val) {
+        root.right = insertIntoBST(root.right, val);
+    } else {
+        root.left = insertIntoBST(root.left, val);
+    }
+    return root;
+};
+```
+
 
 
 ### day 14: 树
+
+#### [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+
+```typescript
+function isValidBST(root: TreeNode | null): boolean {
+    return compareBST(root, -Infinity, Infinity);
+};
+
+function compareBST(root: TreeNode | null, min: number, max: number): boolean {
+    if (!root) return true;
+    let cur = root.val;
+    if (cur <= min || cur >= max) return false;
+    return compareBST(root.left, min, cur) && compareBST(root.right, cur, max);
+}
+```
+
+
+
+#### [653. 两数之和 IV - 输入 BST](https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/)
+
+```typescript
+function findTarget(root: TreeNode | null, k: number): boolean {
+    let set: Set<number> = new Set();
+    return find(root, k, set);
+};
+
+
+function find(root: TreeNode | null, k: number, set: Set<number>): boolean {
+    if (!root) return false;
+    if (set.has(k - root.val)) return true;
+    set.add(root.val);
+    return find(root.left, k, set) || find(root.right, k, set);
+}
+```
+
+
+
+#### [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+
+```typescript
+```
+
