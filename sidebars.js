@@ -41,6 +41,7 @@ module.exports = {
       label: '剑指Offer(JavaScript版)',
       collapsed: true,
       items: [
+        'lcof/data-structures1',
         'lcof/huawei',
         'lcof/rest'
       ]
