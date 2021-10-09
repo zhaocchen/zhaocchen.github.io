@@ -248,18 +248,57 @@ function generateMatrix(n: number): number[][] {
 #### [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)
 
 ```typescript
+function searchMatrix(matrix: number[][], target: number): boolean {
+    let m = matrix.length, n = matrix[0].length;
+    for (let i = 0, j = n - 1; i < m && j > -1;) {
+        let cur = matrix[i][j];
+        if (cur == target) return true;
+        else if (cur < target) {
+            i++;
+        } else {
+            j--;
+        }
+    }
+    return false;
+};
 ```
 
 #### [435. 无重叠区间](https://leetcode-cn.com/problems/non-overlapping-intervals/)
 
 ```typescript
+function eraseOverlapIntervals(intervals: number[][]): number {
+    let n = intervals.length;
+    if (n == 0) return 0;
+    intervals.sort((a, b) => a[1] - b[1]);
+    let end = intervals[0][1], ans = 0;
+    for (let i = 1; i < n; ++i) {
+        let cur = intervals[i];
+        if (end > cur[0]) {
+            ans++;
+        } else {
+            end = cur[1];
+        }
+    }
+    return ans;
+};
 ```
 
-
-
-
-
 ### day5: 数组
+
+#### [334. 递增的三元子序列](https://leetcode-cn.com/problems/increasing-triplet-subsequence/)
+
+```typescript
+```
+
+#### [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)
+
+```typescript
+```
+
+#### [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+
+```typescript
+```
 
 
 
