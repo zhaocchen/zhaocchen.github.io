@@ -288,33 +288,192 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 #### [334. 递增的三元子序列](https://leetcode-cn.com/problems/increasing-triplet-subsequence/)
 
 ```typescript
+function increasingTriplet(nums: number[]): boolean {
+    let n = nums.length;
+    if (n < 3) return false;
+    let min = Number.MAX_SAFE_INTEGER, mid = Number.MAX_SAFE_INTEGER;
+    for (let num of nums) {
+        if (num <= min) {
+            min = num;
+        } else if (num <= mid) {
+            mid = num;
+        } else if (num > mid) {
+            return true;
+        }
+    }
+    return false;
+};
 ```
 
 #### [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)
 
 ```typescript
+function productExceptSelf(nums: number[]): number[] {
+    let n = nums.length;
+    let pre = [1], post = Array(n).fill(1);
+    for (let i = 1; i < n; i++) {
+        pre[i] = pre[i - 1] * nums[i - 1];
+    }
+    for (let i = n - 2; i >= 0; i--) {
+        post[i] = post[i + 1] * nums[i + 1];
+    }
+    let ans = [];
+    for (let i = 0; i < n; i++) {
+        ans[i] = pre[i] * post[i];
+    }
+    return ans;
+};
 ```
 
 #### [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
 
 ```typescript
+function subarraySum(nums: number[], k: number): number {
+    let ans = 0, pre = 0;
+    let hashTable = new Map();
+    hashTable.set(0, 1);
+    for (let num of nums) {
+        pre += num;
+        ans += (hashTable.get(pre - k) || 0);
+        hashTable.set(pre, (hashTable.get(pre) || 0) + 1);
+    }
+    return ans;
+};
 ```
-
-
-
-
 
 ### day6: 字符串
 
+#### [415. 字符串相加](https://leetcode-cn.com/problems/add-strings/)
 
+```typescript
+var addStrings = function(num1, num2) {
+    let ans = [];
+    for (let i = num1.length - 1, j = num2.length - 1, sum = 0; i >= 0 || j >= 0 || sum > 0; i--, j--) {
+        const a = i >= 0 ? parseInt(num1.charAt(i), 10) : 0;
+        const b = j >= 0 ? parseInt(num2.charAt(j), 10) : 0;
+        sum += (a + b);
+        ans.unshift(sum % 10);
+        sum = Math.floor(sum / 10);
+    }
+    return ans.join("");
+};
+```
+
+#### [409. 最长回文串](https://leetcode-cn.com/problems/longest-palindrome/)
+
+```typescript
+function longestPalindrome(s: string): number {
+    let n = s.length;
+    let ans = 0;
+    let record = new Array(128).fill(0);
+    for (let i = 0; i < n; i++) {
+        record[s.charCodeAt(i)]++;
+    }
+    for (let i = 65; i < 128; i++) {
+        let count = record[i];
+        ans += (count % 2 == 0 ? count : count - 1);
+    }
+    return ans < s.length ? ans + 1 : ans;
+};
+```
 
 ### day7: 字符串
 
+#### [290. 单词规律](https://leetcode-cn.com/problems/word-pattern/)
 
+```typescript
+function wordPattern(pattern: string, s: string): boolean {
+    let n = pattern.length;
+    let values = s.split(' ');
+    if (n != values.length) return false;
+    let table = new Array(128);
+    for (let i = 0; i < n; i++) {
+        let k = pattern.charCodeAt(i), v = values[i];
+        if (!table[k]) {
+            if (table.includes(v)) return false;
+            table[k] = v;
+        } else {
+            if (table[k] != v) return false;
+        }
+    }
+    return true;
+};
+```
+
+#### [763. 划分字母区间](https://leetcode-cn.com/problems/partition-labels/)
+
+```typescript
+function partitionLabels(s: string): number[] {
+    let n = s.length;
+    let last = new Array(128);
+    for (let i = 0; i < n; i++) {
+        last[s.charCodeAt(i)] = i;
+    }
+    let ans = [];
+    let left = 0, right = 0;
+    for (let i = 0; i < n; i++) {
+        right = Math.max(right, last[s.charCodeAt(i)]);
+        if (i == right) {
+            ans.push(right - left + 1);
+            left = right + 1;
+        }
+    }
+    return ans;
+};
+```
 
 ### day8: 字符串
 
+#### [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
 
+```typescript
+function groupAnagrams(strs: string[]): string[][] {
+    let map = new Map();
+    for (let str of strs) {
+        let arr = str.split('');
+        arr.sort();
+        let key  = arr.join('');
+        let value = map.get(key) ? map.get(key) : [];
+        value.push(str);
+        map.set(key, value);
+    }
+    return Array.from(map.values());
+};
+```
+
+#### [43. 字符串相乘](https://leetcode-cn.com/problems/multiply-strings/)
+
+```typescript
+function multiply(num1: string, num2: string): string {
+    if ([num1, num2].includes('0')) return '0';
+    const n1 = num1.length, n2 = num2.length;
+    let ans = '';
+    for(let i = n1 - 1; i >= 0; i--) {
+        let cur1 = parseInt(num1.charAt(i), 10);
+        let sum = '';
+        for(let j = n2 - 1; j >= 0; j--) {
+            let cur2 = parseInt(num2.charAt(j), 10);
+            sum = addString(sum, cur1 * cur2 + ('0'.repeat(n2 - j - 1)));
+        }
+        ans = addString(ans, sum + ('0'.repeat(n1 - i - 1)));
+    }
+    return ans;
+};
+
+function addString(s1: string, s2: string): string {
+    const n1 = s1.length, n2 = s2.length;
+    let ans = [];
+    let sum = 0;
+    for (let i = n1 - 1, j = n2 - 1; i >= 0 || j >= 0 || sum > 0; i--, j--) {
+        let num1 = s1.charAt(i) ? parseInt(s1.charAt(i), 10) : 0;
+        let num2 = s2.charAt(j) ? parseInt(s2.charAt(j), 10) : 0;
+        sum += (num1 + num2);
+        ans.unshift(sum % 10);
+        sum = Math.floor(sum / 10);
+    }
+    return ans.join('');
+}
+```
 
 ### day9: 字符串
 
