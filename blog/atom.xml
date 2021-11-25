@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhaocchen.github.io/blog</id>
+    <title>元气の小岛 Blog</title>
+    <updated>2021-08-08T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://zhaocchen.github.io/blog"/>
+    <subtitle>元气の小岛 Blog</subtitle>
+    <icon>https://zhaocchen.github.io/img/favicon.ico</icon>
+    <rights>Copyright © 2021 Rematch, Inc.</rights>
+    <entry>
+        <title type="html"><![CDATA[git新命令及别名]]></title>
+        <id>git</id>
+        <link href="https://zhaocchen.github.io/blog/git"/>
+        <updated>2021-08-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[git命令简写(ohmyzsh中)]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly253]]></title>
+        <id>weekly253</id>
+        <link href="https://zhaocchen.github.io/blog/2021/08/06/weekly253"/>
+        <updated>2021-08-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[---]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly249]]></title>
+        <id>weekly249</id>
+        <link href="https://zhaocchen.github.io/blog/weekly249"/>
+        <updated>2021-07-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[js + shell => shelljs]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly248]]></title>
+        <id>weekly248</id>
+        <link href="https://zhaocchen.github.io/blog/weekly248"/>
+        <updated>2021-07-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[vscode 插件： GitHub Copilot]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly247]]></title>
+        <id>weekly247</id>
+        <link href="https://zhaocchen.github.io/blog/weekly247"/>
+        <updated>2021-06-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[处理特殊字符]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly246]]></title>
+        <id>weekly246</id>
+        <link href="https://zhaocchen.github.io/blog/weekly246"/>
+        <updated>2021-06-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Map.values转数组]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[什么是埋点]]></title>
+        <id>track</id>
+        <link href="https://zhaocchen.github.io/blog/track"/>
+        <updated>2021-06-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[介绍]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly245]]></title>
+        <id>weekly245</id>
+        <link href="https://zhaocchen.github.io/blog/weekly245"/>
+        <updated>2021-06-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[HTML转AST]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly244]]></title>
+        <id>weekly244</id>
+        <link href="https://zhaocchen.github.io/blog/weekly244"/>
+        <updated>2021-06-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[git命令简写 搜索二叉树 arm架构]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly242]]></title>
+        <id>weekly242</id>
+        <link href="https://zhaocchen.github.io/blog/weekly242"/>
+        <updated>2021-05-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[1 替代 除2取整]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weekly241]]></title>
+        <id>weekly241</id>
+        <link href="https://zhaocchen.github.io/blog/weekly241"/>
+        <updated>2021-05-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[git命令简写 搜索二叉树 arm架构]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[新起点的思考]]></title>
+        <id>weekly240</id>
+        <link href="https://zhaocchen.github.io/blog/weekly240"/>
+        <updated>2021-04-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[周报]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何将webpack3升级至webpack4]]></title>
+        <id>如何将webpack3升级至webpack4</id>
+        <link href="https://zhaocchen.github.io/blog/如何将webpack3升级至webpack4"/>
+        <updated>2020-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[背景]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何使用parcel实现零配置打包]]></title>
+        <id>如何使用parcel实现零配置打包</id>
+        <link href="https://zhaocchen.github.io/blog/如何使用parcel实现零配置打包"/>
+        <updated>2020-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[简介]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何实现vue多页面]]></title>
+        <id>如何实现vue多页面</id>
+        <link href="https://zhaocchen.github.io/blog/如何实现vue多页面"/>
+        <updated>2020-05-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[vue-cli3 配置多页面]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[译-ECMAScript2020]]></title>
+        <id>译-ECMAScript2020</id>
+        <link href="https://zhaocchen.github.io/blog/译-ECMAScript2020"/>
+        <updated>2020-03-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[是时候对JavaScipt进行更新。本文我们一起回顾来自ES2020的最新的和最伟大的功能。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ES6迭代器]]></title>
+        <id>ES6迭代器</id>
+        <link href="https://zhaocchen.github.io/blog/ES6迭代器"/>
+        <updated>2019-10-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[迭代器由任意对象实现的接口，支持连续获取对象产出的每个值； 默认Symbol.iterator 属性。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何实现文本渐变]]></title>
+        <id>如何实现文本渐变</id>
+        <link href="https://zhaocchen.github.io/blog/如何实现文本渐变"/>
+        <updated>2019-09-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[简介]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[最近使用的几种图标字体库]]></title>
+        <id>最近使用的几种图标字体库</id>
+        <link href="https://zhaocchen.github.io/blog/最近使用的几种图标字体库"/>
+        <updated>2019-03-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[0. 前言]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[译-攻破javascript面试的完美指南]]></title>
+        <id>译-攻破javascript面试的完美指南</id>
+        <link href="https://zhaocchen.github.io/blog/译-攻破javascript面试的完美指南"/>
+        <updated>2018-10-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[攻破javascript面试的完美指南(开发者视角)]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[译-提升页面性能的最好实践(雅虎35条军规)]]></title>
+        <id>译-雅虎35条军规</id>
+        <link href="https://zhaocchen.github.io/blog/译-雅虎35条军规"/>
+        <updated>2018-08-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[内容]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JavaScript中&&与&区别]]></title>
+        <id>JavaScript中&amp;&amp;与&amp;区别</id>
+        <link href="https://zhaocchen.github.io/blog/JavaScript中&amp;&amp;与&amp;区别"/>
+        <updated>2018-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[0.简介]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何使用hexo搭建个人博客]]></title>
+        <id>如何使用hexo搭建个人博客</id>
+        <link href="https://zhaocchen.github.io/blog/如何使用hexo搭建个人博客"/>
+        <updated>2018-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello]]></title>
+        <id>hello-world</id>
+        <link href="https://zhaocchen.github.io/blog/hello-world"/>
+        <updated>2018-05-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to this blog. This blog is created with Docusaurus 2 alpha.]]></summary>
+    </entry>
+</feed>

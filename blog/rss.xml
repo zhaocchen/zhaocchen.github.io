@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>元气の小岛 Blog</title>
+        <link>https://zhaocchen.github.io/blog</link>
+        <description>元气の小岛 Blog</description>
+        <lastBuildDate>Sun, 08 Aug 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>Copyright © 2021 Rematch, Inc.</copyright>
+        <item>
+            <title><![CDATA[git新命令及别名]]></title>
+            <link>https://zhaocchen.github.io/blog/git</link>
+            <guid>git</guid>
+            <pubDate>Sun, 08 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[git命令简写(ohmyzsh中)]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly253]]></title>
+            <link>https://zhaocchen.github.io/blog/2021/08/06/weekly253</link>
+            <guid>weekly253</guid>
+            <pubDate>Fri, 06 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[---]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly249]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly249</link>
+            <guid>weekly249</guid>
+            <pubDate>Fri, 09 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[js + shell => shelljs]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly248]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly248</link>
+            <guid>weekly248</guid>
+            <pubDate>Fri, 02 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[vscode 插件： GitHub Copilot]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly247]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly247</link>
+            <guid>weekly247</guid>
+            <pubDate>Fri, 25 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[处理特殊字符]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly246]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly246</link>
+            <guid>weekly246</guid>
+            <pubDate>Fri, 18 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Map.values转数组]]></description>
+        </item>
+        <item>
+            <title><![CDATA[什么是埋点]]></title>
+            <link>https://zhaocchen.github.io/blog/track</link>
+            <guid>track</guid>
+            <pubDate>Thu, 17 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[介绍]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly245]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly245</link>
+            <guid>weekly245</guid>
+            <pubDate>Fri, 11 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[HTML转AST]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly244]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly244</link>
+            <guid>weekly244</guid>
+            <pubDate>Fri, 04 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[git命令简写 搜索二叉树 arm架构]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly242]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly242</link>
+            <guid>weekly242</guid>
+            <pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[1 替代 除2取整]]></description>
+        </item>
+        <item>
+            <title><![CDATA[weekly241]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly241</link>
+            <guid>weekly241</guid>
+            <pubDate>Fri, 14 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[git命令简写 搜索二叉树 arm架构]]></description>
+        </item>
+        <item>
+            <title><![CDATA[新起点的思考]]></title>
+            <link>https://zhaocchen.github.io/blog/weekly240</link>
+            <guid>weekly240</guid>
+            <pubDate>Wed, 14 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[周报]]></description>
+        </item>
+        <item>
+            <title><![CDATA[如何将webpack3升级至webpack4]]></title>
+            <link>https://zhaocchen.github.io/blog/如何将webpack3升级至webpack4</link>
+            <guid>如何将webpack3升级至webpack4</guid>
+            <pubDate>Sat, 26 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[背景]]></description>
+        </item>
+        <item>
+            <title><![CDATA[如何使用parcel实现零配置打包]]></title>
+            <link>https://zhaocchen.github.io/blog/如何使用parcel实现零配置打包</link>
+            <guid>如何使用parcel实现零配置打包</guid>
+            <pubDate>Mon, 22 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[简介]]></description>
+        </item>
+        <item>
+            <title><![CDATA[如何实现vue多页面]]></title>
+            <link>https://zhaocchen.github.io/blog/如何实现vue多页面</link>
+            <guid>如何实现vue多页面</guid>
+            <pubDate>Thu, 14 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[vue-cli3 配置多页面]]></description>
+        </item>
+        <item>
+            <title><![CDATA[译-ECMAScript2020]]></title>
+            <link>https://zhaocchen.github.io/blog/译-ECMAScript2020</link>
+            <guid>译-ECMAScript2020</guid>
+            <pubDate>Tue, 17 Mar 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[是时候对JavaScipt进行更新。本文我们一起回顾来自ES2020的最新的和最伟大的功能。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[ES6迭代器]]></title>
+            <link>https://zhaocchen.github.io/blog/ES6迭代器</link>
+            <guid>ES6迭代器</guid>
+            <pubDate>Sun, 20 Oct 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[迭代器由任意对象实现的接口，支持连续获取对象产出的每个值； 默认Symbol.iterator 属性。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[如何实现文本渐变]]></title>
+            <link>https://zhaocchen.github.io/blog/如何实现文本渐变</link>
+            <guid>如何实现文本渐变</guid>
+            <pubDate>Sun, 22 Sep 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[简介]]></description>
+        </item>
+        <item>
+            <title><![CDATA[最近使用的几种图标字体库]]></title>
+            <link>https://zhaocchen.github.io/blog/最近使用的几种图标字体库</link>
+            <guid>最近使用的几种图标字体库</guid>
+            <pubDate>Fri, 01 Mar 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[0. 前言]]></description>
+        </item>
+        <item>
+            <title><![CDATA[译-攻破javascript面试的完美指南]]></title>
+            <link>https://zhaocchen.github.io/blog/译-攻破javascript面试的完美指南</link>
+            <guid>译-攻破javascript面试的完美指南</guid>
+            <pubDate>Sat, 20 Oct 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[攻破javascript面试的完美指南(开发者视角)]]></description>
+        </item>
+        <item>
+            <title><![CDATA[译-提升页面性能的最好实践(雅虎35条军规)]]></title>
+            <link>https://zhaocchen.github.io/blog/译-雅虎35条军规</link>
+            <guid>译-雅虎35条军规</guid>
+            <pubDate>Fri, 24 Aug 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容]]></description>
+        </item>
+        <item>
+            <title><![CDATA[JavaScript中&&与&区别]]></title>
+            <link>https://zhaocchen.github.io/blog/JavaScript中&amp;&amp;与&amp;区别</link>
+            <guid>JavaScript中&amp;&amp;与&amp;区别</guid>
+            <pubDate>Thu, 12 Jul 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[0.简介]]></description>
+        </item>
+        <item>
+            <title><![CDATA[如何使用hexo搭建个人博客]]></title>
+            <link>https://zhaocchen.github.io/blog/如何使用hexo搭建个人博客</link>
+            <guid>如何使用hexo搭建个人博客</guid>
+            <pubDate>Fri, 22 Jun 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Hello]]></title>
+            <link>https://zhaocchen.github.io/blog/hello-world</link>
+            <guid>hello-world</guid>
+            <pubDate>Tue, 29 May 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to this blog. This blog is created with Docusaurus 2 alpha.]]></description>
+        </item>
+    </channel>
+</rss>
