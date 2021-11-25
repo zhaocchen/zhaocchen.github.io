@@ -42,6 +42,7 @@ module.exports = {
       collapsed: true,
       items: [
         'lcof/data-structures1',
+        'lcof/data-structures2',
         'lcof/huawei',
         'lcof/rest'
       ]
@@ -51,21 +52,21 @@ module.exports = {
       label: '白板系列',
       collapsed: true,
       items: [
-        'whiteboard/bisect_right',
         'whiteboard/string-trim',
+        'whiteboard/new',
         'whiteboard/array-flat',
         'whiteboard/array-map',
         'whiteboard/array-reduce',
-        'whiteboard/promise-all',
         'whiteboard/promise-allSettled',
+        'whiteboard/promise-all',
         'whiteboard/promisify',
-        'whiteboard/new',
         'whiteboard/setInterval',
         'whiteboard/json',
         'whiteboard/throttle-debounce',
         'whiteboard/event-emitter',
         'whiteboard/sleep',
         'whiteboard/array-get',
+        'whiteboard/bisect_right',
         
       ]
     },

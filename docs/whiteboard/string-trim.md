@@ -1,8 +1,9 @@
 ---
-title: 实现Sting.trim
+title: 实现 String.prototype.trim()
 ---
 
-## 实现trim
+[实现 String.prototype.trim()](https://bigfrontend.dev/zh/problem/implement-String-prototype-trim)
+
 #### 修剪trim
 ```js
 var a = '   r34 f  ';

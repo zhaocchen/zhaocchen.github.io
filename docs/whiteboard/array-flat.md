@@ -1,9 +1,11 @@
 ---
-title: 实现Array.flat
+title: 实现Array.prototype.flat()
 ---
 
 
-[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+[MDN-Array/flat](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+
+[实现Array.prototype.flat()](https://bigfrontend.dev/zh/problem/implement-Array-prototype.flat)
 
 📢 参数 深度， 默认为1
 

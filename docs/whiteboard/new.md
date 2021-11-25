@@ -1,6 +1,23 @@
 ---
-title: 实现new
+title: 实现Object.create()和new
 ---
+
+### 实现Object.create()
+
+[94. 实现Object.create()](https://bigfrontend.dev/zh/problem/implement-your-own-Object-create)
+
+```js
+function myObjectCreate(proto) {
+  if (typeof proto != 'object' || !proto) {
+    throw new Error('');
+  }
+  let obj = new Object();
+  obj.__proto__ = proto;
+  return obj;
+}
+```
+
+### 实现new
 
 ```js
 function myNew (Func) {
