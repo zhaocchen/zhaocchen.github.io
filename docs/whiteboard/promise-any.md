@@ -17,14 +17,14 @@ Promise.all = function (promises) {
   return new Promise((resolve, reject) => {
     let count = 0;
     let errors = [];
-    for (let i in iterator) {
-      Promise.resolve(iterator[i])
+    for (let i in promises) {
+      Promise.resolve(promises[i])
         .then(value => {
           resolve(value);
         }, reason => {
           errors[i] = reason;
           count++;
-          if (count == iterator.length) {
+          if (count == promises.length) {
             reject(new AggregateError(
               'No Promise in Promise.any was resolved', 
               errors
