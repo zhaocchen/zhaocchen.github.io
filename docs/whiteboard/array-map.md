@@ -15,6 +15,23 @@ title: 实现Array.map
 3. `array`
 
 可选`map` 方法调用的数组。
+
+[online](https://bigfrontend.dev/zh/problem/implement-Array-prototype-map)
+
+实现
+
+```
+Array.prototype.myMap = function(cb, context) {
+  const n = this.length;
+  let ans = new Array(n);
+  for (let i = 0; i < n; i++) {
+    if (!this.hasOwnProperty(i)) continue;
+    ans[i] = cb.call(context, this[i], i, this);
+  }
+  return ans;  
+}
+```
+
 #### 手写 
 ```js
 Array.prototype._map = function (callback, context) {
